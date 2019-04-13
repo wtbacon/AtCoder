@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -std=c++14 -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/ABC.dir/abc082/roundUpTheMean.cpp.o CMakeFiles/ABC.dir/abc086/product.cpp.o  -o ABC 

@@ -2,14 +2,25 @@
 
 using namespace std;
 
-int main() {
-    int a, b;
-
-    cin >> a >> b;
-    if ((a + b) % 2 == 0 ){
-        cout << (a + b) / 2 ;
-    } else {
-        cout << (a + b + 1) / 2;
+int sumDigit(int n) {
+    int sum = 0;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
     }
+    return sum;
 }
 
+int main() {
+    int N, A, B;
+
+    cin >> N >> A >> B;
+
+    int total = 0;
+    for (int i = 1; i <= N; i++) {
+
+        int tmpTotal = sumDigit(i);
+        if (A <= tmpTotal and tmpTotal <= B) total += i;
+    }
+    cout << total << endl;
+}

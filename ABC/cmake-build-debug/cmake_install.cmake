@@ -36,7 +36,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc081/cmake_install.cmake")
   include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc082/cmake_install.cmake")
+  include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc083/cmake_install.cmake")
   include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc086/cmake_install.cmake")
+  include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc087/cmake_install.cmake")
 
 endif()
 

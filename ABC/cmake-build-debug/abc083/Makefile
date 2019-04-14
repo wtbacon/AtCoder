@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc083/CMakeFiles/progress.marks
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc083/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc083/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,96 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc083/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc083/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named abc081B
+# Convenience name for target.
+abc083/CMakeFiles/abc083B.dir/rule:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc083/CMakeFiles/abc083B.dir/rule
+.PHONY : abc083/CMakeFiles/abc083B.dir/rule
 
-# Build rule for target.
-abc081B: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 abc081B
-.PHONY : abc081B
+# Convenience name for target.
+abc083B: abc083/CMakeFiles/abc083B.dir/rule
 
-# fast build rule for target.
-abc081B/fast:
-	$(MAKE) -f abc081/CMakeFiles/abc081B.dir/build.make abc081/CMakeFiles/abc081B.dir/build
-.PHONY : abc081B/fast
-
-#=============================================================================
-# Target rules for targets named abc081A
-
-# Build rule for target.
-abc081A: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 abc081A
-.PHONY : abc081A
-
-# fast build rule for target.
-abc081A/fast:
-	$(MAKE) -f abc081/CMakeFiles/abc081A.dir/build.make abc081/CMakeFiles/abc081A.dir/build
-.PHONY : abc081A/fast
-
-#=============================================================================
-# Target rules for targets named abc082A
-
-# Build rule for target.
-abc082A: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 abc082A
-.PHONY : abc082A
-
-# fast build rule for target.
-abc082A/fast:
-	$(MAKE) -f abc082/CMakeFiles/abc082A.dir/build.make abc082/CMakeFiles/abc082A.dir/build
-.PHONY : abc082A/fast
-
-#=============================================================================
-# Target rules for targets named abc083B
-
-# Build rule for target.
-abc083B: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 abc083B
 .PHONY : abc083B
 
 # fast build rule for target.
 abc083B/fast:
-	$(MAKE) -f abc083/CMakeFiles/abc083B.dir/build.make abc083/CMakeFiles/abc083B.dir/build
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc083/CMakeFiles/abc083B.dir/build.make abc083/CMakeFiles/abc083B.dir/build
 .PHONY : abc083B/fast
 
-#=============================================================================
-# Target rules for targets named abc086A
+B.o: B.cpp.o
 
-# Build rule for target.
-abc086A: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 abc086A
-.PHONY : abc086A
+.PHONY : B.o
 
-# fast build rule for target.
-abc086A/fast:
-	$(MAKE) -f abc086/CMakeFiles/abc086A.dir/build.make abc086/CMakeFiles/abc086A.dir/build
-.PHONY : abc086A/fast
+# target to build an object file
+B.cpp.o:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc083/CMakeFiles/abc083B.dir/build.make abc083/CMakeFiles/abc083B.dir/B.cpp.o
+.PHONY : B.cpp.o
 
-#=============================================================================
-# Target rules for targets named abc087B
+B.i: B.cpp.i
 
-# Build rule for target.
-abc087B: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 abc087B
-.PHONY : abc087B
+.PHONY : B.i
 
-# fast build rule for target.
-abc087B/fast:
-	$(MAKE) -f abc087/CMakeFiles/abc087B.dir/build.make abc087/CMakeFiles/abc087B.dir/build
-.PHONY : abc087B/fast
+# target to preprocess a source file
+B.cpp.i:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc083/CMakeFiles/abc083B.dir/build.make abc083/CMakeFiles/abc083B.dir/B.cpp.i
+.PHONY : B.cpp.i
+
+B.s: B.cpp.s
+
+.PHONY : B.s
+
+# target to generate assembly for a file
+B.cpp.s:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc083/CMakeFiles/abc083B.dir/build.make abc083/CMakeFiles/abc083B.dir/B.cpp.s
+.PHONY : B.cpp.s
 
 # Help Target
 help:
@@ -196,12 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... abc081B"
-	@echo "... abc081A"
-	@echo "... abc082A"
 	@echo "... abc083B"
-	@echo "... abc086A"
-	@echo "... abc087B"
+	@echo "... B.o"
+	@echo "... B.i"
+	@echo "... B.s"
 .PHONY : help
 
 
@@ -213,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

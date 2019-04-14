@@ -5,7 +5,7 @@
 		<Option title="abc082"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\abc081\;CMake Files\abc082\;CMake Files\abc086\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\abc081\;CMake Files\abc082\;CMake Files\abc083\;CMake Files\abc086\;CMake Files\abc087\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc082"/>
@@ -74,8 +74,14 @@
 		<Unit filename="/Users/s02825/CLionProjects/atCoder/ABC/abc082/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\abc082\"/>
 		</Unit>
+		<Unit filename="/Users/s02825/CLionProjects/atCoder/ABC/abc083/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\abc083\"/>
+		</Unit>
 		<Unit filename="/Users/s02825/CLionProjects/atCoder/ABC/abc086/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\abc086\"/>
+		</Unit>
+		<Unit filename="/Users/s02825/CLionProjects/atCoder/ABC/abc087/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\abc087\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

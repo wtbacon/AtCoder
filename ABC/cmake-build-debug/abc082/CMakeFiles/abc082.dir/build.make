@@ -57,27 +57,27 @@ include abc082/CMakeFiles/abc082.dir/progress.make
 # Include the compile flags for this target's objects.
 include abc082/CMakeFiles/abc082.dir/flags.make
 
-abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.o: abc082/CMakeFiles/abc082.dir/flags.make
-abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.o: ../abc082/roundUpTheMean.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.o"
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc082 && /Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abc082.dir/roundUpTheMean.cpp.o -c /Users/s02825/CLionProjects/atCoder/ABC/abc082/roundUpTheMean.cpp
+abc082/CMakeFiles/abc082.dir/A.cpp.o: abc082/CMakeFiles/abc082.dir/flags.make
+abc082/CMakeFiles/abc082.dir/A.cpp.o: ../abc082/A.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object abc082/CMakeFiles/abc082.dir/A.cpp.o"
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc082 && /Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abc082.dir/A.cpp.o -c /Users/s02825/CLionProjects/atCoder/ABC/abc082/A.cpp
 
-abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abc082.dir/roundUpTheMean.cpp.i"
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc082 && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/s02825/CLionProjects/atCoder/ABC/abc082/roundUpTheMean.cpp > CMakeFiles/abc082.dir/roundUpTheMean.cpp.i
+abc082/CMakeFiles/abc082.dir/A.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abc082.dir/A.cpp.i"
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc082 && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/s02825/CLionProjects/atCoder/ABC/abc082/A.cpp > CMakeFiles/abc082.dir/A.cpp.i
 
-abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abc082.dir/roundUpTheMean.cpp.s"
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc082 && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/s02825/CLionProjects/atCoder/ABC/abc082/roundUpTheMean.cpp -o CMakeFiles/abc082.dir/roundUpTheMean.cpp.s
+abc082/CMakeFiles/abc082.dir/A.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abc082.dir/A.cpp.s"
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc082 && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/s02825/CLionProjects/atCoder/ABC/abc082/A.cpp -o CMakeFiles/abc082.dir/A.cpp.s
 
 # Object files for target abc082
 abc082_OBJECTS = \
-"CMakeFiles/abc082.dir/roundUpTheMean.cpp.o"
+"CMakeFiles/abc082.dir/A.cpp.o"
 
 # External object files for target abc082
 abc082_EXTERNAL_OBJECTS =
 
-abc082/abc082: abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.o
+abc082/abc082: abc082/CMakeFiles/abc082.dir/A.cpp.o
 abc082/abc082: abc082/CMakeFiles/abc082.dir/build.make
 abc082/abc082: abc082/CMakeFiles/abc082.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable abc082"

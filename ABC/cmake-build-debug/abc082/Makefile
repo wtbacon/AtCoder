@@ -111,46 +111,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-abc082/CMakeFiles/abc082.dir/rule:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc082/CMakeFiles/abc082.dir/rule
-.PHONY : abc082/CMakeFiles/abc082.dir/rule
+abc082/CMakeFiles/abc082A.dir/rule:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc082/CMakeFiles/abc082A.dir/rule
+.PHONY : abc082/CMakeFiles/abc082A.dir/rule
 
 # Convenience name for target.
-abc082: abc082/CMakeFiles/abc082.dir/rule
+abc082A: abc082/CMakeFiles/abc082A.dir/rule
 
-.PHONY : abc082
+.PHONY : abc082A
 
 # fast build rule for target.
-abc082/fast:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc082/CMakeFiles/abc082.dir/build.make abc082/CMakeFiles/abc082.dir/build
-.PHONY : abc082/fast
+abc082A/fast:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc082/CMakeFiles/abc082A.dir/build.make abc082/CMakeFiles/abc082A.dir/build
+.PHONY : abc082A/fast
 
-roundUpTheMean.o: roundUpTheMean.cpp.o
+A.o: A.cpp.o
 
-.PHONY : roundUpTheMean.o
+.PHONY : A.o
 
 # target to build an object file
-roundUpTheMean.cpp.o:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc082/CMakeFiles/abc082.dir/build.make abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.o
-.PHONY : roundUpTheMean.cpp.o
+A.cpp.o:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc082/CMakeFiles/abc082A.dir/build.make abc082/CMakeFiles/abc082A.dir/A.cpp.o
+.PHONY : A.cpp.o
 
-roundUpTheMean.i: roundUpTheMean.cpp.i
+A.i: A.cpp.i
 
-.PHONY : roundUpTheMean.i
+.PHONY : A.i
 
 # target to preprocess a source file
-roundUpTheMean.cpp.i:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc082/CMakeFiles/abc082.dir/build.make abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.i
-.PHONY : roundUpTheMean.cpp.i
+A.cpp.i:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc082/CMakeFiles/abc082A.dir/build.make abc082/CMakeFiles/abc082A.dir/A.cpp.i
+.PHONY : A.cpp.i
 
-roundUpTheMean.s: roundUpTheMean.cpp.s
+A.s: A.cpp.s
 
-.PHONY : roundUpTheMean.s
+.PHONY : A.s
 
 # target to generate assembly for a file
-roundUpTheMean.cpp.s:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc082/CMakeFiles/abc082.dir/build.make abc082/CMakeFiles/abc082.dir/roundUpTheMean.cpp.s
-.PHONY : roundUpTheMean.cpp.s
+A.cpp.s:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc082/CMakeFiles/abc082A.dir/build.make abc082/CMakeFiles/abc082A.dir/A.cpp.s
+.PHONY : A.cpp.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... abc082"
-	@echo "... roundUpTheMean.o"
-	@echo "... roundUpTheMean.i"
-	@echo "... roundUpTheMean.s"
+	@echo "... abc082A"
+	@echo "... A.o"
+	@echo "... A.i"
+	@echo "... A.s"
 .PHONY : help
 
 

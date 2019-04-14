@@ -4,8 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/s02825/CLionProjects/atCoder/ABC/abc082/roundUpTheMean.cpp" "/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles/ABC.dir/abc082/roundUpTheMean.cpp.o"
-  "/Users/s02825/CLionProjects/atCoder/ABC/abc086/product.cpp" "/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles/ABC.dir/abc086/product.cpp.o"
+  "/Users/s02825/CLionProjects/atCoder/ABC/abc081/A.cpp" "/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc081/CMakeFiles/abc081A.dir/A.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

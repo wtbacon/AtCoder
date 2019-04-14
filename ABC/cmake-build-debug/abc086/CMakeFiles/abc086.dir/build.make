@@ -57,27 +57,27 @@ include abc086/CMakeFiles/abc086.dir/progress.make
 # Include the compile flags for this target's objects.
 include abc086/CMakeFiles/abc086.dir/flags.make
 
-abc086/CMakeFiles/abc086.dir/product.cpp.o: abc086/CMakeFiles/abc086.dir/flags.make
-abc086/CMakeFiles/abc086.dir/product.cpp.o: ../abc086/product.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object abc086/CMakeFiles/abc086.dir/product.cpp.o"
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc086 && /Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abc086.dir/product.cpp.o -c /Users/s02825/CLionProjects/atCoder/ABC/abc086/product.cpp
+abc086/CMakeFiles/abc086.dir/A.cpp.o: abc086/CMakeFiles/abc086.dir/flags.make
+abc086/CMakeFiles/abc086.dir/A.cpp.o: ../abc086/A.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object abc086/CMakeFiles/abc086.dir/A.cpp.o"
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc086 && /Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abc086.dir/A.cpp.o -c /Users/s02825/CLionProjects/atCoder/ABC/abc086/A.cpp
 
-abc086/CMakeFiles/abc086.dir/product.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abc086.dir/product.cpp.i"
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc086 && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/s02825/CLionProjects/atCoder/ABC/abc086/product.cpp > CMakeFiles/abc086.dir/product.cpp.i
+abc086/CMakeFiles/abc086.dir/A.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abc086.dir/A.cpp.i"
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc086 && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/s02825/CLionProjects/atCoder/ABC/abc086/A.cpp > CMakeFiles/abc086.dir/A.cpp.i
 
-abc086/CMakeFiles/abc086.dir/product.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abc086.dir/product.cpp.s"
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc086 && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/s02825/CLionProjects/atCoder/ABC/abc086/product.cpp -o CMakeFiles/abc086.dir/product.cpp.s
+abc086/CMakeFiles/abc086.dir/A.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abc086.dir/A.cpp.s"
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc086 && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/s02825/CLionProjects/atCoder/ABC/abc086/A.cpp -o CMakeFiles/abc086.dir/A.cpp.s
 
 # Object files for target abc086
 abc086_OBJECTS = \
-"CMakeFiles/abc086.dir/product.cpp.o"
+"CMakeFiles/abc086.dir/A.cpp.o"
 
 # External object files for target abc086
 abc086_EXTERNAL_OBJECTS =
 
-abc086/abc086: abc086/CMakeFiles/abc086.dir/product.cpp.o
+abc086/abc086: abc086/CMakeFiles/abc086.dir/A.cpp.o
 abc086/abc086: abc086/CMakeFiles/abc086.dir/build.make
 abc086/abc086: abc086/CMakeFiles/abc086.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable abc086"

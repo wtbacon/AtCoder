@@ -111,46 +111,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-abc086/CMakeFiles/abc086.dir/rule:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc086/CMakeFiles/abc086.dir/rule
-.PHONY : abc086/CMakeFiles/abc086.dir/rule
+abc086/CMakeFiles/abc086A.dir/rule:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 abc086/CMakeFiles/abc086A.dir/rule
+.PHONY : abc086/CMakeFiles/abc086A.dir/rule
 
 # Convenience name for target.
-abc086: abc086/CMakeFiles/abc086.dir/rule
+abc086A: abc086/CMakeFiles/abc086A.dir/rule
 
-.PHONY : abc086
+.PHONY : abc086A
 
 # fast build rule for target.
-abc086/fast:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc086/CMakeFiles/abc086.dir/build.make abc086/CMakeFiles/abc086.dir/build
-.PHONY : abc086/fast
+abc086A/fast:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc086/CMakeFiles/abc086A.dir/build.make abc086/CMakeFiles/abc086A.dir/build
+.PHONY : abc086A/fast
 
-product.o: product.cpp.o
+A.o: A.cpp.o
 
-.PHONY : product.o
+.PHONY : A.o
 
 # target to build an object file
-product.cpp.o:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc086/CMakeFiles/abc086.dir/build.make abc086/CMakeFiles/abc086.dir/product.cpp.o
-.PHONY : product.cpp.o
+A.cpp.o:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc086/CMakeFiles/abc086A.dir/build.make abc086/CMakeFiles/abc086A.dir/A.cpp.o
+.PHONY : A.cpp.o
 
-product.i: product.cpp.i
+A.i: A.cpp.i
 
-.PHONY : product.i
+.PHONY : A.i
 
 # target to preprocess a source file
-product.cpp.i:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc086/CMakeFiles/abc086.dir/build.make abc086/CMakeFiles/abc086.dir/product.cpp.i
-.PHONY : product.cpp.i
+A.cpp.i:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc086/CMakeFiles/abc086A.dir/build.make abc086/CMakeFiles/abc086A.dir/A.cpp.i
+.PHONY : A.cpp.i
 
-product.s: product.cpp.s
+A.s: A.cpp.s
 
-.PHONY : product.s
+.PHONY : A.s
 
 # target to generate assembly for a file
-product.cpp.s:
-	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc086/CMakeFiles/abc086.dir/build.make abc086/CMakeFiles/abc086.dir/product.cpp.s
-.PHONY : product.cpp.s
+A.cpp.s:
+	cd /Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug && $(MAKE) -f abc086/CMakeFiles/abc086A.dir/build.make abc086/CMakeFiles/abc086A.dir/A.cpp.s
+.PHONY : A.cpp.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... abc086"
-	@echo "... product.o"
-	@echo "... product.i"
-	@echo "... product.s"
+	@echo "... abc086A"
+	@echo "... A.o"
+	@echo "... A.i"
+	@echo "... A.s"
 .PHONY : help
 
 

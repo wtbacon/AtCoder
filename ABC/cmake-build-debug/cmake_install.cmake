@@ -39,6 +39,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc083/cmake_install.cmake")
   include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc086/cmake_install.cmake")
   include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc087/cmake_install.cmake")
+  include("/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc088/cmake_install.cmake")
 
 endif()
 

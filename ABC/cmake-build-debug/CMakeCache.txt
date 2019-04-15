@@ -248,6 +248,12 @@ abc087_BINARY_DIR:STATIC=/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-deb
 //Value Computed by CMake
 abc087_SOURCE_DIR:STATIC=/Users/s02825/CLionProjects/atCoder/ABC/abc087
 
+//Value Computed by CMake
+abc088_BINARY_DIR:STATIC=/Users/s02825/CLionProjects/atCoder/ABC/cmake-build-debug/abc088
+
+//Value Computed by CMake
+abc088_SOURCE_DIR:STATIC=/Users/s02825/CLionProjects/atCoder/ABC/abc088
+
 
 ########################
 # INTERNAL cache entries
@@ -349,7 +355,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

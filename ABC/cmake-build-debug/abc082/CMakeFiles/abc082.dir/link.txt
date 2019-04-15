@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -std=c++14 -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/abc082.dir/A.cpp.o  -o abc082 

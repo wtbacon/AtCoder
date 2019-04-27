@@ -1,3 +1,0 @@
-/Users/s02825/CLionProjects/atCoder/atCoderTutorial/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/s02825/CLionProjects/atCoder/atCoderTutorial/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/s02825/CLionProjects/atCoder/atCoderTutorial/cmake-build-debug/CMakeFiles/atCoderTutorial.dir

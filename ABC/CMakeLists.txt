@@ -2,14 +2,12 @@ cmake_minimum_required(VERSION 3.13)
 
 project(ABC)
 
-# サブディレクトリ内のソースをすべてプロジェクトにぶちこむマクロ
 MACRO(ADD_ALL_SUBDIR result curdir)
     FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
     SET(dirlist "")
     FOREACH(child ${children})
         IF(IS_DIRECTORY ${curdir}/${child})
             LIST(APPEND dirlist ${child})
-            # CMakeがディレクトリにあるか(1のパターン)無いか(2のパターン)で分岐
             IF(EXISTS ${curdir}/${child}/CMakeLists.txt)
                 add_subdirectory(${child})
             ELSE()

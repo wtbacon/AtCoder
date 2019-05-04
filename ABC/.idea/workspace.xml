@@ -32,28 +32,32 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="ABC" targetName="abc070B" />
       <config projectName="ABC" targetName="abc081B" />
       <config projectName="ABC" targetName="abc081A" />
-      <config projectName="ABC" targetName="abc060B" />
-      <config projectName="ABC" targetName="abc082A" />
       <config projectName="ABC" targetName="abc083B" />
-      <config projectName="ABC" targetName="abc096C" />
       <config projectName="ABC" targetName="abc085C" />
+      <config projectName="ABC" targetName="abc051B" />
       <config projectName="ABC" targetName="abc085B" />
-      <config projectName="ABC" targetName="abc086C" />
       <config projectName="ABC" targetName="abc087C" />
-      <config projectName="ABC" targetName="abc098C" />
       <config projectName="ABC" targetName="abc075B" />
-      <config projectName="ABC" targetName="abc086A" />
       <config projectName="ABC" targetName="abc087B" />
       <config projectName="ABC" targetName="abc065B" />
-      <config projectName="ABC" targetName="abc088B" />
       <config projectName="ABC" targetName="abc055B" />
+      <config projectName="ABC" targetName="abc125A" />
       <config projectName="ABC" targetName="abc079C" />
+      <config projectName="ABC" targetName="abc125B" />
+      <config projectName="ABC" targetName="abc125C" />
+      <config projectName="ABC" targetName="abc049C" />
+      <config projectName="ABC" targetName="abc070B" />
+      <config projectName="ABC" targetName="abc060B" />
+      <config projectName="ABC" targetName="abc082A" />
+      <config projectName="ABC" targetName="abc096C" />
+      <config projectName="ABC" targetName="abc086C" />
+      <config projectName="ABC" targetName="abc098C" />
+      <config projectName="ABC" targetName="abc086A" />
+      <config projectName="ABC" targetName="abc088B" />
       <config projectName="ABC" targetName="abc046B" />
       <config projectName="ABC" targetName="abc048B" />
-      <config projectName="ABC" targetName="abc049C" />
       <config projectName="ABC" targetName="abc081" />
     </generated>
   </component>
@@ -64,8 +68,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="333e5517-2b79-4659-954b-a480da1f3930" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/abc079/C.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abc079/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abc051/B.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abc051/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abc125/A.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abc125/B.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abc125/C.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abc125/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -83,13 +91,19 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/abc079/C.cpp">
+        <entry file="file://$PROJECT_DIR$/abc051/B.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/abc051/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -110,9 +124,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/abc086/product.cpp" />
-        <option value="$PROJECT_DIR$/abc082/roundUpTheMean.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/abc082/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/abc086/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/abc086/product.cpp" />
@@ -158,14 +169,19 @@
         <option value="$PROJECT_DIR$/abc079/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/abc098/C.cpp" />
         <option value="$PROJECT_DIR$/abc079/C.cpp" />
+        <option value="$PROJECT_DIR$/abc125/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/abc125/B.cpp" />
+        <option value="$PROJECT_DIR$/abc125/A.cpp" />
+        <option value="$PROJECT_DIR$/abc125/C.cpp" />
+        <option value="$PROJECT_DIR$/abc051/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/abc051/B.cpp" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="-1920" />
-    <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -205,12 +221,17 @@
             <path>
               <item name="ABC" type="b2602c69:ProjectViewProjectNode" />
               <item name="ABC" type="462c0819:PsiDirectoryNode" />
-              <item name="abc079" type="462c0819:PsiDirectoryNode" />
+              <item name="abc046" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ABC" type="b2602c69:ProjectViewProjectNode" />
               <item name="ABC" type="462c0819:PsiDirectoryNode" />
               <item name="abc098" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ABC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ABC" type="462c0819:PsiDirectoryNode" />
+              <item name="abc125" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -232,10 +253,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/abc125" />
       <recent name="$PROJECT_DIR$/abc087" />
       <recent name="$PROJECT_DIR$/abc049" />
       <recent name="$PROJECT_DIR$/abc086" />
-      <recent name="$PROJECT_DIR$/abc085" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -253,7 +274,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.abc079C">
+  <component name="RunManager" selected="CMake Application.abc051B">
     <configuration name="abc046B" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ABC" TARGET_NAME="abc046B" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ABC" RUN_TARGET_NAME="abc046B">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -265,6 +286,11 @@
       </method>
     </configuration>
     <configuration name="abc049C" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ABC" TARGET_NAME="abc049C" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ABC" RUN_TARGET_NAME="abc049C">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="abc051B" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ABC" TARGET_NAME="abc051B" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ABC" RUN_TARGET_NAME="abc051B">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -364,10 +390,26 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="abc125A" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ABC" TARGET_NAME="abc125A" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ABC" RUN_TARGET_NAME="abc125A">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="abc125B" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ABC" TARGET_NAME="abc125B" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ABC" RUN_TARGET_NAME="abc125B">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="abc125C" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ABC" TARGET_NAME="abc125C" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ABC" RUN_TARGET_NAME="abc125C">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.abc046B" />
       <item itemvalue="CMake Application.abc048B" />
       <item itemvalue="CMake Application.abc049C" />
+      <item itemvalue="CMake Application.abc051B" />
       <item itemvalue="CMake Application.abc055B" />
       <item itemvalue="CMake Application.abc060B" />
       <item itemvalue="CMake Application.abc065B" />
@@ -387,6 +429,9 @@
       <item itemvalue="CMake Application.abc088B" />
       <item itemvalue="CMake Application.abc096C" />
       <item itemvalue="CMake Application.abc098C" />
+      <item itemvalue="CMake Application.abc125A" />
+      <item itemvalue="CMake Application.abc125B" />
+      <item itemvalue="CMake Application.abc125C" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -409,24 +454,23 @@
       <workItem from="1556322349538" duration="30000" />
       <workItem from="1556322383442" duration="19000" />
       <workItem from="1556322477525" duration="2412000" />
-      <workItem from="1556340273070" duration="6441000" />
+      <workItem from="1556340273070" duration="12513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67319000" />
+    <option name="totallyTimeSpent" value="73391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11821086" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11821086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4993895" visible="true" weight="0.35841584" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4993895" visible="true" weight="0.35841584" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -470,9 +514,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
-    <entry file="file://$PROJECT_DIR$/abc082/roundUpTheMean.cpp" />
-    <entry file="file://$PROJECT_DIR$/abc086/product.cpp" />
     <entry file="file://$PROJECT_DIR$/abc081/placingMarbles.cpp" />
     <entry file="file://$PROJECT_DIR$/abc082/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -728,16 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/abc096/C.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -755,20 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/abc098/C.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/abc079/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -776,13 +793,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/abc079/C.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+        <state relative-caret-position="296">
+          <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abc098/C.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abc125/A.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abc125/B.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abc125/C.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abc125/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abc051/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abc051/B.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
         </state>
       </provider>
     </entry>

@@ -2,9 +2,9 @@
 #include <vector>
 #include <map>
 #include <numeric>
+#include <algorithm>
 
 using namespace std;
-
 
 int main() {
 
@@ -24,14 +24,15 @@ int main() {
     sort(A.begin(), A.end());
 
     for (int i = 0; i < M; ++i) {
-        for (int n = 0; n < B[i];++n){
-           if (A[n] < C[i]) A[n] = C[i];
-           else if (C[i] <= A[n]) break;
+        for (int n = 0; n < B[i]; ++n) {
+            if (A[n] < C[i]) A[n] = C[i];
+            else if (C[i] <= A[n]) break;
         }
+        sort(A.begin(), A.end());
     }
 
     long long total = 0;
-    for (int i = 0; i < N ; ++i) total += A[i];
+    for (int i = 0; i < N; ++i) total += A[i];
     cout << total << endl;
 
     return 0;

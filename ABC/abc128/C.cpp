@@ -14,23 +14,23 @@ int main() {
     int N, M;
     cin >> N >> M;
 
-    vector<vector<int>> k(M, vector<int>(N+1));
+    vector<vector<int>> k(M, vector<int>(N + 1));
     vector<int> p(M);
 
-    for (int m =0;m<M;++m) {
+    for (int m = 0; m < M; ++m) {
         cin >> k[m][0];
-        for (int i = 0; i < k[m][0];++i) cin >> k[m][i+1];
+        for (int i = 0; i < k[m][0]; ++i) cin >> k[m][i + 1];
     }
 
-    for (int i =0; i<M;++i) cin >> p[i];
+    for (int i = 0; i < M; ++i) cin >> p[i];
 
     int total = 0;
-    for (int mask = 0; mask < (1 << N); ++mask){
+    for (int mask = 0; mask < (1 << N); ++mask) {
         bool flag = true;
-        for (int m = 0; m < M; ++m){
+        for (int m = 0; m < M; ++m) {
             int tmpk = 0;
-            for (int i = 0; i < k[m][0]; ++i){
-                if ( mask & (1 << N - k[m][i+1])) {
+            for (int i = 0; i < k[m][0]; ++i) {
+                if (mask & (1 << N - k[m][i + 1])) {
                     tmpk += 1;
                 }
             }
@@ -39,7 +39,7 @@ int main() {
         if (flag) total += 1;
     }
 
-    cout << total <<endl;
+    cout << total << endl;
 
     return 0;
 }

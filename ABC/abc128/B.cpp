@@ -25,15 +25,14 @@ int main() {
         I[i] = i + 1;
     }
 
-    for (int n = 0; n< N -1 ; ++n) {
-        for (int i = 0; i < N - n - 1 ; ++i) {
+    for (int n = 0; n < N - 1; ++n) {
+        for (int i = 0; i < N - n - 1; ++i) {
             if (S[i] > S[i + 1]) {
                 swap(S[i], S[i + 1]);
                 swap(P[i], P[i + 1]);
                 swap(I[i], I[i + 1]);
-            }
-            else if (S[i] == S[i + 1]) {
-                if (P[i] < P[i+1]) {
+            } else if (S[i] == S[i + 1]) {
+                if (P[i] < P[i + 1]) {
                     swap(S[i], S[i + 1]);
                     swap(P[i], P[i + 1]);
                     swap(I[i], I[i + 1]);

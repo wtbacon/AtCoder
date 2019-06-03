@@ -20,7 +20,7 @@ int main() {
     for (int i = 0; i < N; ++i) cin >> A[i][0] >> A[i][1] >> A[i][2];
 
     for (int i = 0; i < N; ++i) {
-      G[A[i][0]][A[i][1]] = A[i][2];
+        G[A[i][0]][A[i][1]] = A[i][2];
     }
 
     for (int i = 0; i < N; ++i) {

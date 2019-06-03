@@ -26,10 +26,9 @@ int main() {
         for (int i = 0; i < n - 1; i++) {
             if (mask & (1 << i)) {
                 res += stoll(S.substr(idx, rng));
-                idx = i+1;
+                idx = i + 1;
                 rng = 1;
-            }
-            else rng += 1;
+            } else rng += 1;
         }
         res += stoll(S.substr(idx, rng));
     }

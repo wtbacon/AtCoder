@@ -19,11 +19,22 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, A, B;
+    int N;
+    string S;
 
-    cin >> N >> A >> B;
+    cin >> N;
+    cin >> S;
 
-    if (B < A * N) cout << B << endl;
-    else cout << A*N << endl;
+    for (int i = 1; i < N; i++) {
+        int L = N-i;
+        int ans = 0;
+        for (int l = 1; l <= L; l++) {
+            if (S[l-1] != S[l+i-1]) {
+                ans++;
+            } else break;
+        }
+        cout << ans << endl;
+    }
+
     return 0;
 }

@@ -18,6 +18,8 @@ typedef long long ll;
 const int INF1 = 2147483647; // 10^9
 const ll INF2 = 9223372036854775807; // 10^18
 
+int N;
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);

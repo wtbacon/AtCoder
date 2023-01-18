@@ -19,11 +19,15 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, A, B;
+    int a, b;
 
-    cin >> N >> A >> B;
+    cin >> a >> b;
 
-    if (B < A * N) cout << B << endl;
-    else cout << A*N << endl;
+    if (a + a == b | a + a + 1 == b) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
     return 0;
 }

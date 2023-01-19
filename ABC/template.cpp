@@ -70,6 +70,7 @@ void readGraph() {
     for (int i = 0; i < M; i++) {
         int a, b;
         cin >> a >> b;
+        a--, b--; //  AtCoder の問題は 1 始まりであることに注意
         G[a].push_back(b); // 有向グラフの場合これだけ
         // G[b].push_back(a); // 無向グラフの場合追加
 
@@ -87,23 +88,25 @@ void readGraph() {
 
 
 vector<bool> seen; // 全要素 false で初期化されるので探索のみなら使える
-void dfsGraphWithRecursion(const Graph& G, int v) {
+void dfsGraphWithRecursion(const Graph &G, int v) {
     /**
-     * 任意の Node v を始点とした全探索のみを行う。
+     * Node v を始点とした探索を行う。
+     * 全 Node を探索する場合、全 Node を始点としてこの関数を callする必要がある。
+     * Stack
      * G = (V, E) を全探索する
      */
     seen[v] = true;
 
-    for (auto next_v: G[v]) {
+    for (auto next_v : G[v]) {
         if (seen[next_v]) continue;
         dfsGraphWithRecursion(G, next_v);
     }
 }
 
-void dfsGraphWithStack(const Graph& G, int s) { // bfsGraphWithQueue()
+void dfsGraphWithStack(const Graph &G, int s) { // bfsGraphWithQueue(): Stack => Queue
     /**
-     * 任意の Node s を始点とした全探索のみを行う。
-     * Stack => Queue にすれば bfsGraphWithQueue() になる
+     * Node v を始点とした探索を行う。
+     * 全 Node を探索する場合、全 Node を始点としてこの関数を callする必要がある。
      * G: Graph
      * s: 始点となる Node
      */
@@ -119,7 +122,7 @@ void dfsGraphWithStack(const Graph& G, int s) { // bfsGraphWithQueue()
         int v = todo.top();
         todo.pop();
 
-        for (int x: G[v]) {
+        for (int x : G[v]) {
             if (seen[x]) continue;
             seen[x] = true;
             todo.push(x);
@@ -127,11 +130,10 @@ void dfsGraphWithStack(const Graph& G, int s) { // bfsGraphWithQueue()
     }
 }
 
-vector<int> dfsGraphForSSSP(const Graph& G, int s) {
+vector<int> dfsGraphForSSSP(const Graph &G, int s) { // bfsGraphWithStack(): Stack => Queue
     /**
-     * 任意の Node s を始点とした全探索のみを行う。
+     * Node s を始点とした　他Node との距離を探索する。
      * SSSP: Single Source Shortest Path
-     * Stack => Queue にすれば bfsGraphWithStack() になる
      * G: Graph
      * s: 始点となる Node
      */
@@ -146,7 +148,7 @@ vector<int> dfsGraphForSSSP(const Graph& G, int s) {
         int v = queue.top();
         queue.pop();
 
-        for (int x: G[v]) {
+        for (int x : G[v]) {
             if (distance[x] != -1) continue;
             distance[x] = distance[v] + 1;
             queue.push(x);
@@ -155,12 +157,41 @@ vector<int> dfsGraphForSSSP(const Graph& G, int s) {
     return distance;
 }
 
-bool bfsIsDAG() { // dfsIsDAGWithStack()
+bool bfsIsBipartiteGraph(const Graph &G, int s) {
+    /**
+     * 全 Node を探索する場合、全 Node を始点としてこの関数を callする必要がある。
+     * color: -1(未訪問), 0(白色), 1(黒色)
+     */
+    int N = (int) G.size();
+
+    const int WHITE = 0;
+    const int BLACK = 1;
+
+    vector<int> color(N, -1);
+    queue<int> queue;
+
+    queue.push(s);
+    color[s] = WHITE;
+
+    while (!queue.empty()) {
+        int v = queue.front();
+        queue.pop();
+
+        for (int next_v: G[v]) {
+            if (color[next_v] != -1) {
+                if (color[next_v] == color[v]) return false;
+            }
+            color[next_v] = 1 - color[v];
+            queue.push(next_v);
+        }
+    }
+    return true;
+}
+
+bool bfsIsDAG() { // dfsIsDAGWithStack(): Queue => Stack
     /**
      * DAG判定。有向サイクルを持たなければDAG。
-     * Queue => Stack にすれば dfsIsDAGWithStack() になる
      * Node が string ならば、以下を map にする必要がある。queue, order の要素は string になる。
-     *
      * Graph: map<string, vector<string> >
      * OutDegrees: map<string, int>
      */

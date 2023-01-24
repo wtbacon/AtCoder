@@ -21,7 +21,7 @@
 #include <cctype> // isupper, islower, isdigit, toupper, tolower
 //#include <bits/stdc++.h>
 
-#define rep(n) for (int i = 0; i < (n); ++i)
+#define rep(i, n) for (int i = 0; i < (n); ++i)
 
 using namespace std;
 
@@ -42,14 +42,30 @@ void chmax(T &a, T b) {
     if (a < b) a = b;
 }
 
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N;
+    cin >> N;
 
-    cout << N << endl;
+    string S;
+    cin >> S;
+
+    string ans = "";
+
+    int i = 0;
+    while ( i < N) {
+        if (S[i] == 'n' && S[i+1] == 'a') {
+            ans += "nya";
+            i = i+2;
+        } else {
+            ans += S[i];
+            i++;
+        }
+    }
+
+    cout << ans << endl;
+
     return 0;
 }

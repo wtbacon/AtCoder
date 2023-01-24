@@ -19,9 +19,11 @@
 #include <unordered_set> // unordered_set
 #include <bitset> // bitset
 #include <cctype> // isupper, islower, isdigit, toupper, tolower
+#include <cstring>
+
 //#include <bits/stdc++.h>
 
-#define rep(n) for (int i = 0; i < (n); ++i)
+#define rep(i, n) for (int i = 0; i < (n); ++i)
 
 using namespace std;
 
@@ -42,14 +44,36 @@ void chmax(T &a, T b) {
     if (a < b) a = b;
 }
 
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N, X;
+    cin >> N >> X;
 
-    cout << N << endl;
+    int MAX_N = 50;
+    int MAX_X = pow(10, 4);
+    vector<int> A(MAX_N);
+    vector<int> B(MAX_N);
+    for (int i = 0; i < N; i++) {
+        cin >> A[i] >> B[i];
+    }
+
+    vector<int> dp(MAX_X + 1, -1);
+    dp[0] = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j <= X; j++) {
+            if (dp[j] >= 0) {
+                dp[j] = B[i];
+            } else if (j < A[i] || dp[j - A[i]] <= 0) {
+                dp[j] = -1;
+            } else {
+                dp[j] = dp[j - A[i]] - 1;
+            }
+        }
+    }
+
+    if (dp[X] >= 0) cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }

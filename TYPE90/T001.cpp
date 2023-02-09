@@ -26,7 +26,8 @@
 using namespace std;
 
 typedef long long ll;
-const long long INF = 1LL << 60; // 2^60
+const long long INF = LLONG_MAX;
+const int MOD = pow(10, 9) + 7;
 
 // change minimum
 template<class T>
@@ -42,14 +43,39 @@ void chmax(T &a, T b) {
     if (a < b) a = b;
 }
 
+ll N, L, K;
+
+bool greedy(ll M, vector<ll> &A) {
+    ll cnt = 0, pre = 0;    // cnt は piece の数ではなく仕切りを入れた数
+
+    rep(N) {
+        if (A[i] - pre >= M && L - A[i] >= M) {
+            cnt++;
+            pre = A[i];
+        }
+    }
+    if (cnt >= K) return true;
+    return false;
+}
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    cin >> N >> L;
+    cin >> K;
 
-    cout << N << endl;
+    vector<ll> A(N);
+    rep(N) cin >> A[i];
+
+    ll left = 0, right = L;
+
+    while (right - left > 1) {  // P(left)=true, P(right)=false より
+        ll mid = (right + left) / 2;
+        if (!greedy(mid, A)) right = mid;
+        else left = mid;
+    }
+
+    cout << left << endl; // P(left)=true
     return 0;
 }

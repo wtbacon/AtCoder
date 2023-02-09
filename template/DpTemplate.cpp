@@ -24,7 +24,8 @@
 using namespace std;
 
 typedef long long ll;
-const long long INF = 1LL << 60; // 2^60
+const long long INF = (1LL << 64) - 1L;
+const int MOD = pow(10, 9) + 7;
 
 // change minimum
 template<class T>
@@ -157,6 +158,43 @@ int LCSProblem() {
     return 0;
 }
 
+int LISProblem() {
+    int N;
+    cin >> N;
+
+    vector<int> nums(N);
+    for (int i = 0; i < N; i++) cin >> nums[i];
+
+    vector<int> dp(N, INT_MAX);
+
+    for (int i = 0; i < N; i++) {
+        auto j = lower_bound(dp.begin(), dp.end(), nums[i]);
+        *j = nums[i];
+    }
+    cout << distance(dp.begin(), lower_bound(dp.begin(), dp.end(), INT_MAX)) << endl;
+    return 0;
+}
+
+int unrestrictedPartitionFunction() {
+
+    int n, k;
+    cin >> n >> k;
+
+    vector<vector<int> > dp(k + 1, vector<int>(n + 1, 0));
+    dp[0][0] = 1;
+
+    for (int i = 1; i <= k; i++) {
+        for (int j = 0; j <= n; j++) {
+            if (j-i >= 0) dp[i][j] = (dp[i-1][j] + dp[i][j-i]) % MOD;
+            else dp[i][j] = dp[i-1][j];
+        }
+    }
+
+    cout << dp[k][n] << endl;
+
+    return 1;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
@@ -212,6 +250,28 @@ int main() {
         => 8
      */
     // LCSProblem();
+
+    /**
+     * https://leetcode.com/problems/longest-increasing-subsequence/description/
+        8
+        10
+        9
+        2
+        5
+        3
+        7
+        101
+        18
+        => 4
+     */
+    // LISProblem();
+
+    /**
+     * https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_J&lang=jp
+        999 999
+        469943830
+     */
+    // unrestrictedPartitionFunction();
 
     return 0;
 }

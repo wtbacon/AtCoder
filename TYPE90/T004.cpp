@@ -62,9 +62,24 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int H, W;
+    cin >> H >> W;
 
-    cout << N << endl;
+    vector<vector<int> > A(H, vector<int>(W));
+    rep(i, H) rep(j, W) cin >> A[i][j];
+
+    vector<int> R(H);
+    vector<int> C(W);
+    rep(i, H) {
+        rep(j, W) {
+            R[i] += A[i][j];
+            C[j] += A[i][j];
+        }
+    }
+
+    rep(i, H) {
+        rep(j, W) cout << R[i] + C[j] - A[i][j] << " ";
+        cout << endl;
+    }
     return 0;
 }

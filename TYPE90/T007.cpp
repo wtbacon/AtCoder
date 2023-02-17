@@ -76,19 +76,26 @@ int main() {
 
     sort(A.begin(), A.end());
 
-    int ans;
+//    int ans;
+//    for (int b : B) {
+//        auto bound = upper_bound(A.begin(), A.end(), b);
+//        if (bound == A.begin()) ans = abs(b - A[0]);
+//        else if (A.begin() < bound && bound < A.end()) {
+//            int lower = abs(b - A[(bound - 1) - A.begin()]);
+//            int upper = abs(b - A[bound - A.begin()]);
+//            ans = min(lower, upper);
+//        } else {
+//            ans = abs(A[N - 1] - b);
+//        }
+//        cout << ans << endl;
+//    }
 
     for (int b : B) {
-        auto bound = upper_bound(A.begin(), A.end(), b);
-        if (bound == A.begin()) ans = abs(b - A[0]);
-        else if (A.begin() < bound && bound < A.end()) {
-            int lower = abs(b - A[(bound - 1) - A.begin()]);
-            int upper = abs(b - A[bound - A.begin()]);
-            ans = min(lower, upper);
-        } else {
-            ans = abs(A[N - 1] - b);
-        }
-        cout << ans << endl;
+        auto bound = lower_bound(A.begin(), A.end(), b) - A.begin();
+        int lower = INT_MAX, upper = INT_MAX;
+        if (bound < N) upper = abs(b - A[bound]);
+        if (bound > 0) lower = abs(b - A[bound - 1]);
+        cout << min(lower, upper) << endl;
     }
 
     return 0;

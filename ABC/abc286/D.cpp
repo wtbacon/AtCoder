@@ -51,29 +51,23 @@ int main() {
     int N, X;
     cin >> N >> X;
 
-    int MAX_N = 50;
-    int MAX_X = pow(10, 4);
-    vector<int> A(MAX_N);
-    vector<int> B(MAX_N);
+    vector<int> A(N);
+    vector<int> B(N);
     for (int i = 0; i < N; i++) {
         cin >> A[i] >> B[i];
     }
 
-    vector<int> dp(MAX_X + 1, -1);
-    dp[0] = 0;
+    vector<vector<int> > dp(N + 1, vector<int>(X + 1, -1));
+    dp[0][0] = 0;
     for (int i = 0; i < N; i++) {
         for (int j = 0; j <= X; j++) {
-            if (dp[j] >= 0) {
-                dp[j] = B[i];
-            } else if (j < A[i] || dp[j - A[i]] <= 0) {
-                dp[j] = -1;
-            } else {
-                dp[j] = dp[j - A[i]] - 1;
-            }
+            if (dp[i][j] >= 0) dp[i + 1][j] = B[i];
+            else if (j < A[i] || dp[i + 1][j - A[i]] < 0) dp[i + 1][j] = -1;
+            else dp[i + 1][j] = dp[i + 1][j - A[i]] - 1;
         }
     }
-
-    if (dp[X] >= 0) cout << "Yes" << endl;
+    if (dp[N][X] >= 0) cout << "Yes" << endl;
     else cout << "No" << endl;
+
     return 0;
 }

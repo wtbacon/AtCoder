@@ -83,6 +83,7 @@ void readGraph() {
 
 
 vector<bool> seen; // 全要素 false で初期化されるので探索のみなら使える
+// vector<int> degrees(N, 0); // ❶各ノードの次数のカウント
 void dfsGraphWithRecursion(const Graph &G, int v) {
     /**
      * Node v を始点とした探索を行う。
@@ -91,11 +92,14 @@ void dfsGraphWithRecursion(const Graph &G, int v) {
      * G = (V, E) を全探索する
      */
     seen[v] = true;
+    // int numDegree = 0; // ❶ノードの次数のカウント
 
     for (auto next_v : G[v]) {
+        // numDegree++; // ❶辿ってきたノードもカウントする
         if (seen[next_v]) continue;
         dfsGraphWithRecursion(G, next_v);
     }
+    // degrees[v] = numDegree; // ❶次数の更新
 }
 
 void dfsGraphWithStack(const Graph &G, int s) { // bfsGraphWithQueue(): Stack => Queue
@@ -109,23 +113,57 @@ void dfsGraphWithStack(const Graph &G, int s) { // bfsGraphWithQueue(): Stack =>
 
     vector<bool> seen(N, false);
     stack<int> todo;
-    // vector<int> degrees(N, 0); // 各ノードの次数のカウント
+    // vector<int> degrees(N, 0); // ❶各ノードの次数のカウント
+    // int connected = 0;   // ❷連結成分のカウント
 
     seen[s] = true;
     todo.push(s);
 
     while (!todo.empty()) {
-        // int numDegree = 0; // 各ノードの次数のカウント
+        // int numDegree = 0; // ❶ノードの次数のカウント
         int v = todo.top();
         todo.pop();
 
         for (int x : G[v]) {
-            // numDegree++; // 辿ってきたノードもカウントする
+            // numDegree++; // ❶辿ってきたノードもカウントする
             if (seen[x]) continue;
             seen[x] = true;
             todo.push(x);
         }
+        // degrees[v] = numDegree; // ❶次数の更新
     }
+}
+
+int findConnectedComponentByDfs(const Graph &G) { // bfsGraphWithQueue(): Stack => Queue
+    /**
+     * Graph の連結成分(connected Component) の数を求める
+     * G: Graph
+     */
+    int N = (int) G.size();
+
+    vector<bool> seen(N, false);
+    int cnt = 0;
+
+    rep (i, N) {
+        if (!seen[i]) {
+            seen[i] = true;
+            cnt++;
+            stack<int> todo;
+            todo.push(i);
+
+            while (!todo.empty()) {
+                int v = todo.top();
+                todo.pop();
+
+                for (int x : G[v]) {
+                    if (seen[x]) continue;
+                    seen[x] = true;
+                    todo.push(x);
+                }
+            }
+        }
+    }
+    return cnt;
 }
 
 vector<int> dfsGraphForSSSP(const Graph &G, int s) { // bfsGraphWithStack(): Stack => Queue

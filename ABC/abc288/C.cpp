@@ -55,16 +55,6 @@ int binary_search() {
     return right;
 }
 
-struct UnionFind {
-  vector<int> part, size;
-
-  UnionFind(int n) : part(n, -1), size(n, 1) {
-  }
-
-  // root を求める
-  int root(int x)
-};
-
 struct Point {
   double x, y;
 };
@@ -85,6 +75,39 @@ double getAngleByTwoPoints(double A, double C) {
     return diff >= 180.0 ? 360.0 - diff : diff;
 }
 
+using Graph = vector<vector<int> >;
+
+int findConnectedComponentByDfs(const Graph &G) { // bfsGraphWithQueue(): Stack => Queue
+    /**
+     * Graph の連結成分(connected Component) の数を求める
+     * G: Graph
+     */
+    int N = (int) G.size();
+
+    vector<bool> seen(N, false);
+    int cnt = 0;
+
+    rep (i, N) {
+        if (!seen[i]) {
+            seen[i] = true;
+            cnt++;
+            stack<int> todo;
+            todo.push(i);
+
+            while (!todo.empty()) {
+                int v = todo.top();
+                todo.pop();
+
+                for (int x : G[v]) {
+                    if (seen[x]) continue;
+                    seen[x] = true;
+                    todo.push(x);
+                }
+            }
+        }
+    }
+    return cnt;
+}
 
 int main() {
     ios::sync_with_stdio(false);
@@ -93,6 +116,49 @@ int main() {
     int N, M;
     cin >> N >> M;
 
-    cout << N << endl;
+    Graph G(N);
+    for (int i = 0; i < M; i++) {
+        int a, b;
+        cin >> a >> b;
+        a--, b--;
+        G[a].push_back(b);
+        G[b].push_back(a);
+    }
+
+    // int cnt = findConnectedComponentByDfs(G);
+
+    int cnt = 0;
+    vector<bool> seen(N, false);
+
+    rep (i, N) {
+        if (!seen[i]) {
+            seen[i] = true;
+            cnt++;
+            stack<int> todo;
+            todo.push(i);
+
+            while (!todo.empty()) {
+                int v = todo.top();
+                todo.pop();
+
+                for (int x : G[v]) {
+                    if (seen[x]) continue;
+                    seen[x] = true;
+                    todo.push(x);
+                }
+            }
+        }
+    }
+
+    // 式変形することで各連結成分の深さを頂点の数を求めずに済む
+    // https://atcoder.jp/contests/abc288/editorial/5662
+    int ans = M - N + cnt;
+
+    if (ans < 0) {
+        cout << 0 << endl;
+    } else {
+        cout << ans << endl;
+    }
+
     return 0;
 }

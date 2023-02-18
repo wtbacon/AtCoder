@@ -21,14 +21,12 @@
 #include <cctype> // isupper, islower, isdigit, toupper, tolower
 //#include <bits/stdc++.h>
 
-#define rep(i, n) for (int (i) = 0; (i) < (n); ++(i))
+#define rep(n) for (int i = 0; i < (n); ++i)
 
 using namespace std;
 
 typedef long long ll;
-const long long INF = LLONG_MAX;
-const int MOD = pow(10, 9) + 7;
-const double pi = 3.14159265358979;
+const long long INF = 1LL << 60; // 2^60
 
 // change minimum
 template<class T>
@@ -44,55 +42,19 @@ void chmax(T &a, T b) {
     if (a < b) a = b;
 }
 
-int binary_search() {
-    int left = 0, right = 0;
-
-    while (right - left > 1) {  // P(left)=false, P(right)=true より
-        int mid = (right - left) / 2;
-        if (mid) right = mid;
-        else left = mid;
-    }
-    return right;
-}
-
-struct UnionFind {
-  vector<int> part, size;
-
-  UnionFind(int n) : part(n, -1), size(n, 1) {
-  }
-
-  // root を求める
-  int root(int x)
-};
-
-struct Point {
-  double x, y;
-};
-
-Point operator-(const Point &p1, const Point &p2) {
-    return {p1.x - p2.x, p1.y - p2.y};
-}
-
-
-double getAngleFromB(Point p) {
-    double ang = atan2(p.y, p.x) * 180.0 / pi;
-    return ang < 0.0 ? 360.0 - abs(ang) : ang;
-}
-
-double getAngleByTwoPoints(double A, double C) {
-    // 原点と見立てた B からの偏角が A, C であることに注意
-    double diff = abs(A - C);
-    return diff >= 180.0 ? 360.0 - diff : diff;
-}
-
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N, K;
+    cin >> N >> K;
 
-    cout << N << endl;
+    vector<ll> A(N);
+    vector<ll> B(N);
+    for (int i = 0; i < N; i++) cin >> A[i] >> B[i];
+
+    for (int i = 0; i < N; i++) cout << A[i] + B[i] << endl;
+
     return 0;
 }

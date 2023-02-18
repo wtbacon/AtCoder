@@ -109,15 +109,18 @@ void dfsGraphWithStack(const Graph &G, int s) { // bfsGraphWithQueue(): Stack =>
 
     vector<bool> seen(N, false);
     stack<int> todo;
+    // vector<int> degrees(N, 0); // 各ノードの次数のカウント
 
     seen[s] = true;
     todo.push(s);
 
     while (!todo.empty()) {
+        // int numDegree = 0; // 各ノードの次数のカウント
         int v = todo.top();
         todo.pop();
 
         for (int x : G[v]) {
+            // numDegree++; // 辿ってきたノードもカウントする
             if (seen[x]) continue;
             seen[x] = true;
             todo.push(x);

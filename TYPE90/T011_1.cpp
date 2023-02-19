@@ -80,9 +80,45 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N;
+    cin >> N;
 
-    cout << N << endl;
+    vector<ll> D(N), C(N), S(N);
+    rep(i, N) {
+        int d;
+        cin >> d >> C[i] >> S[i];
+        d--;
+        D[i] = d;
+    }
+
+    using work = tuple<ll, ll, ll>;
+    vector<work> W(N); // D, C, S
+    rep(i, N) W[i] = make_tuple(D[i], C[i], S[i]);
+
+    sort(W.begin(), W.end());
+
+    ll chp = 0;
+    int ptns = pow(2, N);
+    rep (p, ptns) {
+        vector<work> works;
+        rep (i, N) {
+            if (p & 1 << i) works.push_back(W[i]);
+        }
+
+        int curDay = 0;
+        ll curMoney = 0;
+        for (auto &w : works) {
+            curDay += get<1>(w); // 仕事 w を終えた次の日になる
+            if (curDay <= get<0>(w)) {
+                curMoney += get<2>(w);
+            } else {
+                curMoney = 0;
+                break;
+            }
+        }
+        chp = max(chp, curMoney);
+    }
+
+    cout << chp << endl;
     return 0;
 }

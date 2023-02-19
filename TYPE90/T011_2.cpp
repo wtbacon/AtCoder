@@ -80,9 +80,37 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N;
+    cin >> N;
 
-    cout << N << endl;
+    vector<ll> D(N), C(N), S(N);
+    int maxD = 0;
+    rep(i, N) {
+        int d;
+        cin >> d >> C[i] >> S[i];
+        D[i] = d;
+        maxD = max(maxD, d);
+    }
+
+    using work = tuple<ll, ll, ll>;
+    vector<work> W(N); // D, C, S
+    rep(i, N) W[i] = make_tuple(D[i], C[i], S[i]);
+
+    sort(W.begin(), W.end());
+
+    vector<vector<ll>> dp(N + 1, vector<ll>(maxD + 1, 0));
+    rep (i, N) {
+        rep (j, maxD + 1) {
+            int d = get<0>(W[i]);
+            int c = get<1>(W[i]);
+            ll s = get<2>(W[i]);
+            if (j < c || d < j) dp[i + 1][j] = dp[i][j];
+            else if (c <= j && j <= d) dp[i + 1][j] = max(dp[i][j], dp[i][j - c] + s);
+        }
+    }
+
+    ll ans = 0;
+    rep(i, maxD + 1) ans = max(ans, dp[N][i]);
+    cout << ans << endl;
     return 0;
 }

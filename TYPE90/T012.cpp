@@ -122,14 +122,61 @@ struct UnionFind {
   }
 };
 
+UnionFind uf;
+vector<vector<bool>> used;
+int H, W;
+
+void query1(int px, int py) {
+    vector<int> dx = {-1, 0, 1, 0};
+    vector<int> dy = {0, 1, 0, -1};
+    rep (i, 4) {
+        int nx = px + dx[i], ny = py + dy[i];
+        // 四方を探索しても塗られていなければ併合することはできないことに注意
+        if (0 <= nx && nx < H && 0 <= ny && ny < W && used[nx][ny]) {
+            int hash1 = px * W + py;
+            int hash2 = nx * W + ny;
+            uf.unite(hash1, hash2);
+        }
+    }
+    used[px][py] = true;
+}
+
+bool query2(int px, int py, int qx, int qy) {
+    if (!used[px][py] || !used[qx][qy]) return false;
+    int hash1 = px * W + py;
+    int hash2 = qx * W + qy;
+    return uf.issame(hash1, hash2);
+}
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    cin >> H >> W;
+    used = vector<vector<bool>>(H, vector<bool>(W, false));
 
-    cout << N << endl;
+    int Q;
+    cin >> Q;
+
+    uf.init(H * W);
+
+    rep(i, Q) {
+        int t;
+        cin >> t;
+
+        if (t == 1) {
+            int r, c;
+            cin >> r >> c;
+            r--, c--;
+            query1(r, c);
+        } else {
+            int ra, ca, rb, cb;
+            cin >> ra >> ca >> rb >> cb;
+            ra--, ca--, rb--, cb--;
+            if (query2(ra, ca, rb, cb)) cout << "Yes" << endl;
+            else cout << "No" << endl;
+        }
+    }
+
     return 0;
 }

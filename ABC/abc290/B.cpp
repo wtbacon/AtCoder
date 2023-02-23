@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <climits>
 #include <cmath>
 #include <iomanip>
@@ -43,16 +44,6 @@ void chmax(T &a, T b) {
     if (a < b) a = b;
 }
 
-ll gcd(ll a, ll b) {
-    if (b == 0) return a;
-    else return gcd(b, a % b);
-}
-
-ll lsm(ll a, ll b) {
-    // by GCD * LSM = a * b
-    return a / gcd(a, b) * b;
-}
-
 int binary_search() {
     int left = 0, right = 0;
 
@@ -84,61 +75,28 @@ double getAngleByTwoPoints(double A, double C) {
     return diff >= 180.0 ? 360.0 - diff : diff;
 }
 
-// Union-Find
-struct UnionFind {
-  /**
-   * par: 各ノードの根ノードの番号(自分が根の場合は -1)
-   * siz: 各ノードの属する根付き木のノード数
-   */
- private:
-  vector<int> par, siz;
-
- public:
-  // UnionFind(int n) : par(n, -1), siz(n, 1) {}
-  void init(int n) {
-      par.resize(n, -1), siz.resize(n, 1);
-  }
-
-  // root を求める
-  int root(int x) {
-      if (par[x] == -1) return x;
-      else return par[x] = root(par[x]); // 経路圧縮
-  }
-
-  // x と y が同じグループか(root が同じか)
-  bool issame(int x, int y) {
-      return root(x) == root(y);
-  }
-
-  // x のグループと y のグループを併合する
-  bool unite(int x, int y) {
-      x = root(x);
-      y = root(y);
-
-      if (x == y) return false;
-
-      // Union by size
-      if (siz[x] < siz[y]) swap(x, y);
-
-      par[y] = x;
-      siz[x] += siz[y];
-      return true;
-  }
-
-  // x のグループのサイズ
-  int size(int x) {
-      return siz[root(x)];
-  }
-};
-
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N, K;
+    cin >> N >> K;
 
-    cout << N << endl;
+    string S;
+    cin >> S;
+
+    string ans;
+    int cnt = 0;
+    rep(i, N) {
+        if (S[i] == 'o' && cnt < K) {
+            ans.push_back('o');
+            cnt++;
+        } else {
+            ans.push_back('x');
+        }
+    }
+
+    cout << ans << endl;
     return 0;
 }

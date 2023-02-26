@@ -37,18 +37,20 @@ void chmin(T &a, T b) {
     }
 }
 
+// change maximum
+template<class T>
+void chmax(T &a, T b) {
+    if (a < b) a = b;
+}
+
 template<class T>
 bool chminBool(T &a, T b) {
     if (a > b) {
         a = b;
         return true;
-    } else return false;
-}
-
-// change maximum
-template<class T>
-void chmax(T &a, T b) {
-    if (a < b) a = b;
+    } else {
+        return false;
+    }
 }
 
 ll gcd(ll a, ll b) {
@@ -139,14 +141,63 @@ struct UnionFind {
   }
 };
 
+struct Edge {
+  int to; // 隣接Node番号
+  ll w;
+
+  Edge(int to, ll w) : to(to), w(w) {
+  }
+};
+
+using Graph = vector<vector<Edge> >;
+
+int N, M;
+
+vector<ll> dijkstra(Graph &G, int s) {
+    vector<ll> dist(N, LLONG_MAX);
+    dist[s] = 0;
+
+    // (d[v], v) のペアを要素としたヒープを作る
+    priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> que;
+    que.push(make_pair(dist[s], s));
+
+    while (!que.empty()) {
+        ll d = que.top().first;
+        int v = que.top().second;
+        que.pop();
+
+        // d > dist[v] => (d, v) はゴミ
+        if (d > dist[v]) continue;
+
+        // v を始点とした各エッジの緩和
+        for (auto e : G[v]) {
+            if (chminBool(dist[e.to], dist[v] + e.w)) que.push(make_pair(dist[e.to], e.to));
+        }
+    }
+    return dist;
+}
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
     cin >> N >> M;
+    Graph G(N);
+    for (int i = 0; i < M; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        a--, b--;
+        G[a].push_back(Edge(b, c));
+        G[b].push_back(Edge(a, c));
+    }
 
-    cout << N << endl;
+    vector<ll> dist1 = dijkstra(G, 0);
+    vector<ll> distN = dijkstra(G, N - 1);
+
+    rep(i, N) {
+        ll ans = dist1[i] + distN[i];
+        cout << ans << endl;
+    }
+
     return 0;
 }

@@ -42,6 +42,14 @@ void chmax(T &a, T b) {
     if (a < b) a = b;
 }
 
+template<class T>
+bool chminBool(T &a, T b) {
+    if (a > b) {
+        a = b;
+        return true;
+    } else return false;
+}
+
 struct Edge {
   int to; // 隣接Node番号
   ll w;

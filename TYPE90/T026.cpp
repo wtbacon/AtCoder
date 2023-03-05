@@ -140,14 +140,68 @@ struct UnionFind {
   }
 };
 
+using Graph = vector<vector<int> >;
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N;
+    cin >> N;
 
-    cout << N << endl;
+    Graph G(N);
+    rep(i, N - 1) {
+        int a, b;
+        cin >> a >> b;
+        a--, b--;
+        G[a].push_back(b);
+        G[b].push_back(a);
+    }
+
+    /**
+     * color: -1(未訪問), 0(白色), 1(黒色)
+     */
+
+    const int WHITE = 0;
+    const int BLACK = 1;
+
+    vector<int> color(N, -1);
+    queue<int> queue;
+
+    queue.push(0);
+    color[0] = WHITE;
+
+    while (!queue.empty()) {
+        int v = queue.front();
+        queue.pop();
+
+        for (int next_v : G[v]) {
+            if (color[next_v] == -1) {
+                color[next_v] = 1 - color[v];
+                queue.push(next_v);
+            }
+        }
+    }
+
+    vector<int> WH, BL;
+    rep(i, N) {
+        if (color[i] == WHITE) WH.push_back(i + 1);
+        else BL.push_back(i + 1);
+    }
+
+    if (WH.size() > BL.size()) {
+        rep(i, N / 2) {
+            if (i) cout << " ";
+            cout << WH[i];
+        }
+        cout << endl;
+    } else {
+        rep(i, N / 2) {
+            if (i) cout << " ";
+            cout << BL[i] << endl;
+        }
+        cout << endl;
+    }
+
     return 0;
 }

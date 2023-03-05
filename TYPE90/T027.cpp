@@ -145,9 +145,19 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N;
+    cin >> N;
 
-    cout << N << endl;
+    vector<string> S(N);
+    rep(i, N) cin >> S[i];
+
+    set<string> reg;
+    rep(i, N) {
+        if (!reg.count(S[i])) {
+            cout << i+1 << endl;
+            reg.insert(S[i]);
+        }
+    }
+
     return 0;
 }

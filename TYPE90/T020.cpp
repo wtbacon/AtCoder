@@ -1,7 +1,6 @@
 #include <climits>
 #include <cmath>
 #include <iomanip>
-#include <numeric>
 #include <iostream> // cout, endl, cin
 #include <string> // string, to_string, stoi
 #include <vector> // vector
@@ -145,9 +144,15 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    ll a, b, c;
+    cin >> a >> b >> c;
 
-    cout << N << endl;
+    ll d = 1L;
+    rep(i, b) d *= c;
+
+    if (a < d) cout << "Yes" << endl;
+    else cout << "No" << endl;
+
     return 0;
 }
+

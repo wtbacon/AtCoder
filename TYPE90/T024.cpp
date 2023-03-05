@@ -145,9 +145,18 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N, K;
+    cin >> N >> K;
 
-    cout << N << endl;
+    vector<ll> A(N), B(N), C(N);
+    rep(i, N) cin >> A[i];
+    rep(i, N) cin >> B[i];
+
+    rep(i, N) C[i] = abs(A[i] - B[i]);
+    ll sumC = accumulate(C.begin(), C.end(), 0LL);
+
+    if (sumC <= K && abs(sumC - K) % 2 == 0) cout << "Yes" << endl;
+    else cout << "No" << endl;
+
     return 0;
 }

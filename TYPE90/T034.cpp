@@ -12,7 +12,7 @@ using namespace std;
 using namespace atcoder;
 
 typedef long long ll;
-const long long INF = LLONG_MAX; // 2^64 > 1.8 * 10^19
+const long long INF = LLONG_MAX;
 const int MOD = pow(10, 9) + 7;
 const double pi = 3.14159265358979;
 
@@ -131,9 +131,26 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N, K;
+    cin >> N >> K;
 
-    cout << N << endl;
+    vector<int> a(N);
+    rep (i, N) cin >> a[i];
+
+    map<int, int> cnt;
+    int ans = 0;
+
+    int j = 0;
+    rep (i, N) {
+        cnt[a[i]]++;
+        while (cnt.size() > K) {
+            cnt[a[j]]--;
+            if (cnt[a[j]] == 0) cnt.erase(a[j]);
+            j++;
+        }
+        ans = max(ans, i - j + 1);
+    }
+
+    cout << ans << endl;
     return 0;
 }

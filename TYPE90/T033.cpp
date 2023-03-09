@@ -12,7 +12,7 @@ using namespace std;
 using namespace atcoder;
 
 typedef long long ll;
-const long long INF = LLONG_MAX; // 2^64 > 1.8 * 10^19
+const long long INF = LLONG_MAX;
 const int MOD = pow(10, 9) + 7;
 const double pi = 3.14159265358979;
 
@@ -131,9 +131,17 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int H, W;
+    cin >> H >> W;
 
-    cout << N << endl;
+    if (H == 1 || W == 1) cout << H * W << endl;
+
+        // if (H % 2 == 0) H = H / 2;
+        // else H = H / 2 + 1;
+
+        // if (W % 2 == 0) W = W / 2;
+        // else W = W / 2 + 1;
+
+    else cout << ((H + 1) / 2) * ((W + 1) / 2) << endl;
     return 0;
 }

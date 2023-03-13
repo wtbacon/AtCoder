@@ -126,34 +126,28 @@ struct UnionFind {
   }
 };
 
-// 隣接リスト表現のグラフ
-using Graph = vector<vector<int> >;
-//using Graph = vector<vector<Edge> >;
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int K;
+    cin >> K;
 
-    Graph G(N);
-    for (int i = 0; i < M; i++) {
-        int a, b;
-        cin >> a >> b;
-        a--, b--;
-        G[a].push_back(b);  // 有向グラフ
-        // G[b].push_back(a);
-
-        /*
-        重み付きグラフ
-        int a, b;
-        ll w;
-        cin >> a >> b >> w;
-        G[a].push_back(Edge(b, w)); // 有向グラフ
-        */
+    if (K % 9 != 0) {
+        cout << 0 << endl;
+        return 0;
     }
 
-    cout << N << endl;
+    vector<ll> dp(K + 1, 0);
+    dp[0] = 1;
+    for (int i = 1; i <= K; i++) {
+        for (int j = 1; j <= 9; j++) {
+            if (i - j >= 0) dp[i] += dp[i - j];
+            if (dp[i] >= MOD) dp[i] -= MOD;
+        }
+    }
+
+    cout << dp[K] << endl;
     return 0;
 }

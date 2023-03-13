@@ -60,8 +60,8 @@ void readGraph() {
         int a, b;
         cin >> a >> b;
         a--, b--; //  AtCoder の問題は 1 始まりであることに注意
-        G[a].push_back(b); // 有向グラフの場合これだけ
-        // G[b].push_back(a); // 無向グラフの場合追加
+        G[a].push_back(b); // 有向グラフ
+        // G[b].push_back(a);
 
         /*
         重み付きグラフ

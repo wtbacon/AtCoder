@@ -13,7 +13,7 @@ using namespace atcoder;
 
 typedef long long ll;
 const long long INF = LLONG_MAX; // 2^64 > 1.8 * 10^19
-const int MOD = (int) pow(10, 9) + 7;
+const int MOD = pow(10, 9) + 7;
 const double pi = 3.14159265358979;
 
 // change minimum
@@ -130,30 +130,41 @@ struct UnionFind {
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
+int R, C;
+
+bool inRange(int i, int j) {
+    return i >= 0 && i < R && j >= 0 && j < C;
+}
+
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    cin >> R >> C;
 
-    Graph G(N);
-    for (int i = 0; i < M; i++) {
-        int a, b;
-        cin >> a >> b;
-        a--, b--;
-        G[a].push_back(b);  // 有向グラフ
-        // G[b].push_back(a);
+    vector<string> board(R);
+    rep(i, R) cin >> board[i];
 
-        /*
-        重み付きグラフ
-        int a, b;
-        ll w;
-        cin >> a >> b >> w;
-        G[a].push_back(Edge(b, w)); // 有向グラフ
-        */
+    vector<string> newBoard(board);
+
+    for (int i = 0; i < R; ++i) {
+        for (int j = 0; j < C; ++j) {
+            if (board[i][j] >= '1' && board[i][j] <= '9') {
+                int power = board[i][j] - '0';
+
+                for (int x = i - power; x <= i + power; ++x) {
+                    for (int y = j - power; y <= j + power; ++y) {
+                        if (inRange(x, y) && (abs(i - x) + abs(j - y) <= power)) {
+                            newBoard[x][y] = '.';
+                        }
+                    }
+                }
+            }
+        }
     }
-
-    cout << N << endl;
+    for (const string &row : newBoard) {
+        cout << row << endl;
+    }
     return 0;
 }

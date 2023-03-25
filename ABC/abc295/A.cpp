@@ -134,26 +134,21 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int N;
+    cin >> N;
 
-    Graph G(N);
-    for (int i = 0; i < M; i++) {
-        int a, b;
-        cin >> a >> b;
-        a--, b--;
-        G[a].push_back(b);  // 有向グラフ
-        // G[b].push_back(a);
+    bool flg = false;
+    rep(i, N) {
+        string W;
+        cin >> W;
 
-        /*
-        重み付きグラフ
-        int a, b;
-        ll w;
-        cin >> a >> b >> w;
-        G[a].push_back(Edge(b, w)); // 有向グラフ
-        */
+        if (W == "and" || W == "not" || W == "that" || W == "the" || W == "you") {
+            cout << "Yes" << endl;
+            flg = true;
+            break;
+        }
     }
 
-    cout << N << endl;
+    if (!flg) cout << "No" << endl;
     return 0;
 }

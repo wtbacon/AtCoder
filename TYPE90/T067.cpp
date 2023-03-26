@@ -130,26 +130,23 @@ struct UnionFind {
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
-// (baseFrom)進数の数字を(baseTo)進数の数字へ変換
-string convertBase(const string &num, ll baseFrom, ll baseTo) {
-    deque<ll> digits;
-    for (char digit : num) digits.push_back(digit - '0');
-
-    string result;
-    while (!digits.empty()) {
-        int remainder = 0;
-        rep(i, digits.size()) {
-            ll tmp = remainder * baseFrom + digits[i];
-            digits[i] = tmp / baseTo;
-            remainder = tmp % baseTo;
-        }
-
-        result += char(remainder + '0');
-        while (!digits.empty() && digits.front() == 0) digits.pop_front();
+ll octalToDecimal(const string &num) {
+    ll decimal = 0;
+    rep(i, num.size()) {
+        decimal = decimal * 8 + int(num[i] - '0');
     }
+    return decimal;
+}
 
-    reverse(result.begin(), result.end());
-    return result;
+string DecimalToNonary(ll num) {
+    if (num == 0) return "0";
+
+    string nonary;
+    while (num > 0) {
+        nonary = char(num % 9 + '0') + nonary;
+        num /= 9;
+    }
+    return nonary;
 }
 
 int main() {
@@ -161,7 +158,7 @@ int main() {
     cin >> N >> K;
 
     rep(i, K) {
-        N = convertBase(N, 8, 9);
+        N = DecimalToNonary(octalToDecimal(N));
         rep (j, N.size()) if (N[j] == '8') N[j] = '5';
     }
 

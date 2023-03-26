@@ -134,44 +134,30 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int L, N1, N2;
-    cin >> L >> N1 >> N2;
+    ll L, N, M;
+    cin >> L >> N >> M;
 
-    vector<int> v1(N1), l1(N1), v2(N2), l2(N2);
-    vector<int> x1, x2;
-    rep(i, N1) cin >> v1[i] >> l1[i];
-    rep(i, N2) cin >> v2[i] >> l2[i];
-
-    int i = 0;
-    int j = 0;
-    ll B = v1[0];
-    while (i < N1) {
-        while (i < N1 && v1[i] == v1[i + 1]) {
-            B = B * 10 + v1[i + 1];
-            i++;
-        }
-        rep(k, l1[j]) x1.push_back(B);
-        j++;
-        if (i < N1 - 1) B = v1[i + 1];
-    }
-
-    i = 0;
-    j = 0;
-    B = v2[0];
-    while (i < N1) {
-        while (i < N1 && v2[i] == v2[i + 1]) {
-            B = B * 10 + v2[i + 1];
-            i++;
-        }
-        rep(k, l2[j]) x1.push_back(B);
-        j++;
-        if (i < N1 - 1) B = v2[i + 1];
-    }
+    vector<vector<ll> > A(N, vector<ll>(2)), B(M, vector<ll>(2));
+    rep(i, N) cin >> A[i][0] >> A[i][1];
+    rep(i, M) cin >> B[i][0] >> B[i][1];
 
     ll ans = 0;
-    rep(x, L) {
-        if (x1[x] == x2[x]) ans++;
+    // i, j: 連長圧縮された配列 A, B の index
+    // p, q: 連長圧縮を展開した後の配列の index
+    ll i = 0, j = 0, p = 0, q = 0;
+    while (i < N && j < M) {
+        if (A[i][0] == B[j][0]) {   // A[i], B[j] はまだ展開する前の連長圧縮された列
+            ans += min(p + A[i][1], q + B[j][1]) - max(p, q);   // p, q のうち大きい方の index まで展開した配列の探索した
+        }
+        if (p + A[i][1] < q + B[j][1]) { // A[i], B[j] を展開した後の長さが小さい方を1列分進める(一致している部分は探索済み)
+            p += A[i][1];
+            i++;
+        } else {
+            q += B[j][1];
+            j++;
+        }
     }
+
     cout << ans << endl;
     return 0;
 }

@@ -130,41 +130,30 @@ struct UnionFind {
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
-int R, C;
-
-bool inRange(int i, int j) {
-    return i >= 0 && i < R && j >= 0 && j < C;
-}
-
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    cin >> R >> C;
+    string S;
+    cin >> S;
 
-    vector<string> board(R);
-    rep(i, R) cin >> board[i];
+    map<vector<int>, ll> pCnt;
+    vector<int> sCnt(10, 0);
+    pCnt[sCnt]++;
 
-    vector<string> newBoard(board);
-
-    for (int i = 0; i < R; ++i) {
-        for (int j = 0; j < C; ++j) {
-            if (board[i][j] >= '1' && board[i][j] <= '9') {
-                int power = board[i][j] - '0';
-
-                for (int y = i - power; y <= i + power; ++y) {
-                    for (int x = j - power; x <= j + power; ++x) {
-                        if (inRange(y, x) && (abs(i - y) + abs(j - x) <= power)) {
-                            newBoard[y][x] = '.';
-                        }
-                    }
-                }
-            }
-        }
+    for (auto &s : S) {
+        sCnt[s - '0']++;
+        sCnt[s - '0'] = sCnt[s - '0'] % 2;
+        pCnt[sCnt]++;
     }
-    for (const string &row : newBoard) {
-        cout << row << endl;
+
+    ll ans = 0;
+    for (auto &p : pCnt) {
+        ll cnt = p.second;
+        ans += (cnt * (cnt - 1)) / 2;     // {cnt}_C_{2}
     }
+
+    cout << ans << endl;
     return 0;
 }

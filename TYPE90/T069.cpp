@@ -67,18 +67,6 @@ string DecimalToNonary(ll num) {
     return nonary;
 }
 
-double fastPow(double x, ll n) {
-    if (n == 0) {
-        return  1.0;
-    }
-
-    double half = fastPow(x, n/2);
-    if (n % 2 == 0) {
-        return half * half;
-    } else {
-        return x * half * half;
-    }
-}
 
 int binary_search() {
     int left = 0, right = 0;
@@ -162,30 +150,44 @@ struct UnionFind {
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
+int fastPowWithRecursion(ll x, ll n) {
+    if (n == 0) {
+        return 1;
+    }
+
+    ll half = fastPowWithRecursion(x, n / 2);
+    if (n % 2 == 0) {
+        return half * half % MOD;
+    } else {
+        return x * half % MOD * half % MOD;
+    }
+}
+
+ll fastPowWithLoop(ll a, ll b) {
+    ll ans = 1;
+    while (b != 0) {
+        if (b % 2 == 1) ans = (ll) (ans) * a % MOD;
+        a = (ll) (a) * a % MOD;
+        b /= 2;
+    }
+    return ans;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N;
-    cin >> N;
+    ll N, K;
+    cin >> N >> K;
 
-    // Graph G(N);
-    // for (int i = 0; i < M; i++) {
-    //     int a, b;
-    //     cin >> a >> b;
-    //     a--, b--;
-    //     G[a].push_back(b);  // 有向グラフ
-    //     // G[b].push_back(a);
+    ll ans = 0;
+    if (K == 1) ans = N == 1 ? 1 : 0;
+    else if (N == 1) ans = K % MOD;
+    else if (N == 2) ans = K * (K - 1);
+    else {
+        ans = K * (K - 1) % MOD * fastPowWithRecursion(K - 2, N - 2) % MOD;
+    }
 
-    //     /*
-    //     重み付きグラフ
-    //     int a, b;
-    //     ll w;
-    //     cin >> a >> b >> w;
-    //     G[a].push_back(Edge(b, w)); // 有向グラフ
-    //     */
-    // }
-
-    cout << N << endl;
+    cout << ans << endl;
     return 0;
 }

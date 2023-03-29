@@ -69,10 +69,10 @@ string DecimalToNonary(ll num) {
 
 double fastPow(double x, ll n) {
     if (n == 0) {
-        return  1.0;
+        return 1.0;
     }
 
-    double half = fastPow(x, n/2);
+    double half = fastPow(x, n / 2);
     if (n % 2 == 0) {
         return half * half;
     } else {
@@ -169,23 +169,18 @@ int main() {
     int N;
     cin >> N;
 
-    // Graph G(N);
-    // for (int i = 0; i < M; i++) {
-    //     int a, b;
-    //     cin >> a >> b;
-    //     a--, b--;
-    //     G[a].push_back(b);  // 有向グラフ
-    //     // G[b].push_back(a);
+    vector<int> X(N), Y(N);
+    rep(i, N) cin >> X[i] >> Y[i];
 
-    //     /*
-    //     重み付きグラフ
-    //     int a, b;
-    //     ll w;
-    //     cin >> a >> b >> w;
-    //     G[a].push_back(Edge(b, w)); // 有向グラフ
-    //     */
-    // }
+    nth_element(X.begin(), X.begin() + N / 2, X.end());
+    nth_element(Y.begin(), Y.begin() + N / 2, Y.end());
 
-    cout << N << endl;
+    ll x = 0, y = 0;
+    rep(i, N) {
+        x += abs(X[i] - X[N / 2]);
+        y += abs(Y[i] - Y[N / 2]);
+    }
+
+    cout << x + y << endl;
     return 0;
 }

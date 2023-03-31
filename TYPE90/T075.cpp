@@ -48,20 +48,6 @@ ll lsm(ll a, ll b) {
     return a / gcd(a, b) * b;
 }
 
-// 素因数分解
-vector<ll> primeFactorization(ll N) {
-    vector<ll> p;
-    ll rem = N;
-    for (ll i = 2; i * i <= N; i++) {
-        while (rem % i == 0) {
-            rem = rem / i;
-            p.push_back(i);
-        }
-    }
-    if (rem != 1) p.push_back(rem);
-    return p;
-}
-
 ll octalToDecimal(const string &num) {
     ll decimal = 0;
     rep(i, num.size()) {
@@ -83,10 +69,10 @@ string DecimalToNonary(ll num) {
 
 double fastPow(double x, ll n) {
     if (n == 0) {
-        return  1.0;
+        return 1.0;
     }
 
-    double half = fastPow(x, n/2);
+    double half = fastPow(x, n / 2);
     if (n % 2 == 0) {
         return half * half;
     } else {
@@ -176,30 +162,39 @@ struct UnionFind {
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
+// 素因数分解
+vector<ll> primeFactorization(ll N) {
+    vector<ll> p;
+    ll rem = N;
+    for (ll i = 2; i * i <= N; i++) {
+        while (rem % i == 0) {
+            rem = rem / i;
+            p.push_back(i);
+        }
+    }
+    if (rem != 1) p.push_back(rem);
+    return p;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N;
+    ll N;
     cin >> N;
 
-    // Graph G(N);
-    // for (int i = 0; i < M; i++) {
-    //     int a, b;
-    //     cin >> a >> b;
-    //     a--, b--;
-    //     G[a].push_back(b);  // 有向グラフ
-    //     // G[b].push_back(a);
+    vector<ll> primes = primeFactorization(N);
+    int K = (int) primes.size();
 
-    //     /*
-    //     重み付きグラフ
-    //     int a, b;
-    //     ll w;
-    //     cin >> a >> b >> w;
-    //     G[a].push_back(Edge(b, w)); // 有向グラフ
-    //     */
-    // }
+    int ans = 0;
+    for (int i = 0; i <= 20; i++) {
+        if ((1 << i) >= K) {
+            ans = i;
+            break;
+        }
+    }
 
-    cout << N << endl;
+
+    cout << ans << endl;
     return 0;
 }

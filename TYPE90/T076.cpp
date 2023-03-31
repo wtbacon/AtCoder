@@ -83,10 +83,10 @@ string DecimalToNonary(ll num) {
 
 double fastPow(double x, ll n) {
     if (n == 0) {
-        return  1.0;
+        return 1.0;
     }
 
-    double half = fastPow(x, n/2);
+    double half = fastPow(x, n / 2);
     if (n % 2 == 0) {
         return half * half;
     } else {
@@ -180,26 +180,45 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N;
+    ll N;
     cin >> N;
 
-    // Graph G(N);
-    // for (int i = 0; i < M; i++) {
-    //     int a, b;
-    //     cin >> a >> b;
-    //     a--, b--;
-    //     G[a].push_back(b);  // 有向グラフ
-    //     // G[b].push_back(a);
+    vector<ll> A(N + (N - 1));
+    ll hSize = 0;
+    rep(i, N) {
+        ll a;
+        cin >> a;
+        A[i] = a;
+        if (i < N - 1) A[i + N] = a;
+        hSize += a;
+    }
 
-    //     /*
-    //     重み付きグラフ
-    //     int a, b;
-    //     ll w;
-    //     cin >> a >> b >> w;
-    //     G[a].push_back(Edge(b, w)); // 有向グラフ
-    //     */
-    // }
+    ll tSize = 0;
+    if (hSize % 10 > 0 || A.size() == 1) {
+        cout << "No" << endl;
+        return 0;
+    } else tSize = hSize / 10;
 
-    cout << N << endl;
+    ll left = 0;
+    ll right = 0;
+    bool flg = false;
+
+    ll piece = 0;
+    while (left < N) {
+        piece += A[right];
+        while (piece > tSize && left < right) {
+            piece -= A[left];
+            left++;
+        }
+        if (piece == tSize) {
+            flg = true;
+            break;
+        }
+        right++;
+    }
+
+    if (flg) cout << "Yes" << endl;
+    else cout << "No" << endl;
+
     return 0;
 }

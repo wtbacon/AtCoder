@@ -132,7 +132,7 @@ int numDivisor(int n) {
     int ans = 1;
 
     vector<int> x(n + 1);
-    int num = n; // 素因数分解する変数num
+    int num = n; する変数num
 
     for (int i = 2; i <= n; i++) {
         while (num % i == 0) { // 素数で割り切れなくなるまで割っていく

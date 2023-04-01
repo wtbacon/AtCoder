@@ -44,7 +44,7 @@ struct Edge {
   }
 };
 
-// 隣接リスト表現のグラフ
+
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
@@ -60,7 +60,7 @@ void readGraph() {
         int a, b;
         cin >> a >> b;
         a--, b--; //  AtCoder の問題は 1 始まりであることに注意
-        G[a].push_back(b); // 有向グラフ
+        G[a].push_back(b);
         // G[b].push_back(a);
 
         /*
@@ -68,7 +68,7 @@ void readGraph() {
         int a, b;
         ll w;
         cin >> a >> b >> w;
-        G[a].push_back(Edge(b, w)); // 有向グラフ
+        G[a].push_back(Edge(b, w));
         */
     }
 

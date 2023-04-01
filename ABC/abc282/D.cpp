@@ -44,7 +44,7 @@ struct Edge {
   }
 };
 
-// 隣接リスト表現のグラフ
+
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
@@ -59,8 +59,8 @@ int main() {
         int u, v;
         cin >> u >> v;
         u--, v--;
-        G[u].push_back(v); // 有向グラフの場合これだけ
-        G[v].push_back(u); // 無向グラフの場合追加
+        G[u].push_back(v);
+        G[v].push_back(u);
     }
 
     // 以下、bfsIsBipartiteGraph(const Graph &G, int s) を編集

@@ -126,7 +126,7 @@ struct UnionFind {
   }
 };
 
-// 隣接リスト表現のグラフ
+
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 

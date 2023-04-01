@@ -43,7 +43,7 @@ struct Edge {
   }
 };
 
-// 隣接リスト表現のグラフ
+
 using Graph = map<string, vector<string> >;
 //using Graph = vector<vector<Edge> >;
 

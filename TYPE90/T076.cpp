@@ -48,7 +48,7 @@ ll lsm(ll a, ll b) {
     return a / gcd(a, b) * b;
 }
 
-// 素因数分解
+
 vector<ll> primeFactorization(ll N) {
     vector<ll> p;
     ll rem = N;
@@ -172,7 +172,7 @@ struct UnionFind {
   }
 };
 
-// 隣接リスト表現のグラフ
+
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 

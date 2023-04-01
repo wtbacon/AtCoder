@@ -48,7 +48,6 @@ ll lsm(ll a, ll b) {
     return a / gcd(a, b) * b;
 }
 
-// 素因数分解
 vector<ll> primeFactorization(ll N) {
     vector<ll> p;
     ll rem = N;
@@ -172,7 +171,6 @@ struct UnionFind {
   }
 };
 
-// 隣接リスト表現のグラフ
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
@@ -188,7 +186,7 @@ int main() {
     //     int a, b;
     //     cin >> a >> b;
     //     a--, b--;
-    //     G[a].push_back(b);  // 有向グラフ
+    //     G[a].push_back(b);
     //     // G[b].push_back(a);
 
     //     /*
@@ -196,7 +194,7 @@ int main() {
     //     int a, b;
     //     ll w;
     //     cin >> a >> b >> w;
-    //     G[a].push_back(Edge(b, w)); // 有向グラフ
+    //     G[a].push_back(Edge(b, w));
     //     */
     // }
 

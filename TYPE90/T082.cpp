@@ -12,6 +12,7 @@ using namespace std;
 using namespace atcoder;
 
 typedef long long ll;
+typedef unsigned long long ull;
 const long long INF = LLONG_MAX; // 2^64 > 1.8 * 10^19
 const int MOD = (int) pow(10, 9) + 7;
 const double pi = 3.14159265358979;
@@ -82,32 +83,15 @@ string DecimalToNonary(ll num) {
 
 double fastPow(double x, ll n) {
     if (n == 0) {
-        return  1.0;
+        return 1.0;
     }
 
-    double half = fastPow(x, n/2);
+    double half = fastPow(x, n / 2);
     if (n % 2 == 0) {
         return half * half;
     } else {
         return x * half * half;
     }
-}
-
-ll modPow(ll a, ll b, ll mod) {
-    ll ans = 1;
-    rep(i, 31) {
-        if ((b & (1 << i)) != 0) {
-            ans *= a;
-            ans %= mod;
-        }
-        a *= a;
-        a %= mod;
-    }
-    return ans;
-}
-
-ll inverseElement(ll a, ll b, ll mod) { // using Fermat's little theorem
-    return (a * modPow(b, mod - 2, mod)) % mod;
 }
 
 int binary_search() {
@@ -191,30 +175,51 @@ struct UnionFind {
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
+ll modPow(ll a, ll b, ll mod) {
+    ll ans = 1;
+    rep(i, 31) {
+        if ((b & (1 << i)) != 0) {
+            ans *= a;
+            ans %= mod;
+        }
+        a *= a;
+        a %= mod;
+    }
+    return ans;
+}
+
+ll inverseElement(ll a, ll b, ll mod) { // using Fermat's little theorem
+    return (a * modPow(b, mod - 2, mod)) % mod;
+}
+
+ll f(ll X) {
+    ll v1 = X % MOD;
+    ll v2 = (X + 1) % MOD;
+    ll v = v1 * v2 % MOD;
+    return inverseElement(v, 2, MOD);
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N;
-    cin >> N;
+    ull L, R;
+    cin >> L >> R;
 
-    // Graph G(N);
-    // for (int i = 0; i < M; i++) {
-    //     int a, b;
-    //     cin >> a >> b;
-    //     a--, b--;
-    //     G[a].push_back(b);
-    //     // G[b].push_back(a);
+    vector<ull> power10(20);
+    power10[0] = 1;
+    for (int i = 1; i <= 19; i++) power10[i] = 10ULL * power10[i - 1];
 
-    //     /*
-    //     重み付きグラフ
-    //     int a, b;
-    //     ll w;
-    //     cin >> a >> b >> w;
-    //     G[a].push_back(Edge(b, w));
-    //     */
-    // }
+    ll ans = 0;
+    for (int i = 1; i <= 19; i++) {
+        ull vL = max(L, power10[i - 1]);
+        ull vR = min(R, power10[i] - 1ULL);
+        if (vL > vR) continue;
+        ll val = (f(vR) - f(vL - 1) + MOD) % MOD;
+        ans += 1LL * i * val;
+        ans %= MOD;
+    }
 
-    cout << N << endl;
+    cout << ans << endl;
     return 0;
 }

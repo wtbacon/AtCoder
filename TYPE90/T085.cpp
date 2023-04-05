@@ -61,15 +61,6 @@ vector<ll> primeFactorization(ll N) {
     return p;
 }
 
-vector<ll> getDivisors(ll N) {
-    vector<ll> d;
-    for (ll i = 1; i * i <= N; i++) {
-        if (N % i != 0) continue;
-        d.push_back(i);
-        if (i != (N / i)) d.push_back(N / i);
-    }
-    return d;
-}
 
 ll octalToDecimal(const string &num) {
     ll decimal = 0;
@@ -92,10 +83,10 @@ string DecimalToNonary(ll num) {
 
 double fastPow(double x, ll n) {
     if (n == 0) {
-        return  1.0;
+        return 1.0;
     }
 
-    double half = fastPow(x, n/2);
+    double half = fastPow(x, n / 2);
     if (n % 2 == 0) {
         return half * half;
     } else {
@@ -201,30 +192,38 @@ struct UnionFind {
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
 
+vector<ll> getDivisors(ll N) {
+    vector<ll> d;
+    for (ll i = 1; i * i <= N; i++) {
+        if (N % i != 0) continue;
+        d.push_back(i);
+        if (i != (N / i)) d.push_back(N / i);
+    }
+    return d;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N;
-    cin >> N;
+    ll K;
+    cin >> K;
 
-    // Graph G(N);
-    // for (int i = 0; i < M; i++) {
-    //     int a, b;
-    //     cin >> a >> b;
-    //     a--, b--;
-    //     G[a].push_back(b);
-    //     // G[b].push_back(a);
+    vector<ll> divisors = getDivisors(K);
+    sort(divisors.begin(), divisors.end());
 
-    //     /*
-    //     重み付きグラフ
-    //     int a, b;
-    //     ll w;
-    //     cin >> a >> b >> w;
-    //     G[a].push_back(Edge(b, w));
-    //     */
-    // }
+    ll ans = 0;
+    for (int i = 0; i < divisors.size(); i++) {
+        for (int j = i; j < divisors.size(); j++) {
+            ll a = divisors[i];
+            ll b = divisors[j];
+            if ((K / a) < b) continue; // c = K/a * 1/b より K/a >= b でないと c < 0 になるため
+            if (K % (a * b) != 0) continue; // c が整数かどうか
+            ll c = K / (a * b);
+            if (b <= c) ans++;
+        }
+    }
 
-    cout << N << endl;
+    cout << ans << endl;
     return 0;
 }

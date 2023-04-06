@@ -79,12 +79,6 @@ void readGraph() {
 vector<bool> seen; // 全要素 false で初期化されるので探索のみなら使える
 // vector<int> degrees(N, 0); // ❶各ノードの次数のカウント
 void dfsGraphWithRecursion(const Graph &G, int v) {
-    /**
-     * Node v を始点とした探索を行う。
-     * 全 Node を探索する場合、全 Node を始点としてこの関数を callする必要がある。
-     * Stack
-     * G = (V, E) を全探索する
-     */
     seen[v] = true;
     // int numDegree = 0; // ❶ノードの次数のカウント
 
@@ -97,29 +91,22 @@ void dfsGraphWithRecursion(const Graph &G, int v) {
 }
 
 void dfsGraphWithStack(const Graph &G, int s) { // bfsGraphWithQueue(): Stack => Queue
-    /**
-     * Node v を始点とした探索を行う。
-     * 全 Node を探索する場合、全 Node を始点としてこの関数を callする必要がある。
-     * G: Graph
-     * s: 始点となる Node
-     */
     int N = (int) G.size();
 
     vector<bool> seen(N, false);
     stack<int> todo;
-    // vector<int> degrees(N, 0); // ❶各ノードの次数のカウント
-    // int connected = 0;   // ❷連結成分のカウント
+    // vector<int> degrees(N, 0); // ❶各ノードの次数をカウント
 
     seen[s] = true;
     todo.push(s);
 
     while (!todo.empty()) {
-        // int numDegree = 0; // ❶ノードの次数のカウント
+        // int numDegree = 0; // ❶ノードの次数
         int v = todo.top();
         todo.pop();
 
         for (int x : G[v]) {
-            // numDegree++; // ❶辿ってきたノードもカウントする
+            // numDegree++; // ❶辿ってきたノードをカウントする
             if (seen[x]) continue;
             seen[x] = true;
             todo.push(x);
@@ -131,7 +118,6 @@ void dfsGraphWithStack(const Graph &G, int s) { // bfsGraphWithQueue(): Stack =>
 int findConnectedComponentByDfs(const Graph &G) { // bfsGraphWithQueue(): Stack => Queue
     /**
      * Graph の連結成分(connected Component) の数を求める
-     * G: Graph
      */
     int N = (int) G.size();
 
@@ -164,8 +150,6 @@ vector<int> dfsGraphForSSSP(const Graph &G, int s) { // bfsGraphWithStack(): Sta
     /**
      * Node s を始点とした　他Node との距離を探索する。
      * SSSP: Single Source Shortest Path
-     * G: Graph
-     * s: 始点となる Node
      */
     int N = (int) G.size();
     vector<int> distance(N, -1); // 未訪問を-1とする

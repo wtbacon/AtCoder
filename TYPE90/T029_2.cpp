@@ -199,63 +199,44 @@ struct UnionFind {
 };
 
 using Graph = vector<vector<int> >;
-
-vector<int> order;
-ll cnt = 0;
-
-void topologicalSort(const Graph &G, vector<bool> &seen, int v) {
-    seen[v] = true;
-
-    for (auto next_v : G[v]) {
-        if (seen[next_v]) continue;
-        topologicalSort(G, seen, next_v);
-    }
-    order.push_back(v);
-}
-
-void dfsGraphWithRecursion(const Graph &G, vector<bool> &seen, int v) {
-    seen[v] = true;
-    cnt++;
-
-    for (auto next_v : G[v]) {
-        if (seen[next_v]) continue;
-        dfsGraphWithRecursion(G, seen, next_v);
-    }
-}
+//using Graph = vector<vector<Edge> >;
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, M;
-    cin >> N >> M;
+    int W, N;
+    cin >> W >> N;
 
-    Graph G(N);
-    Graph R(N);
-    rep (i, M) {
-        int a, b;
-        cin >> a >> b;
-        a--, b--;
-        G[a].push_back(b);
-        R[b].push_back(a);
+    vector<int> L(N), R(N);
+    vector<int> A;
+    rep (i, N) {
+        cin >> L[i] >> R[i];
+        A.push_back(L[i]);
+        A.push_back(R[i]);
     }
 
-    vector<bool> seen(N);
-    rep (s, N) {
-        if (seen[s]) continue;
-        topologicalSort(G, seen, s);
-    }
-    reverse(order.begin(), order.end());
-    rep(i, N) seen[i] = false;
-
-    ll ans = 0;
-    for (int s : order) {
-        if (seen[s]) continue;
-        cnt = 0;
-        dfsGraphWithRecursion(R, seen, s); // recursion を抜けるとグループを全探索したことになる
-        ans += cnt * (cnt - 1LL) / 2LL;
+    sort(A.begin(), A.end());
+    auto ip = unique(A.begin(), A.end());
+    A.resize(distance(A.begin(), ip));
+    rep (i, A.size()) {
+        rep (j, N) {
+            if (L[j] == A[i]) L[j] = i;
+            if (R[j] == A[i]) R[j] = i;
+        }
     }
 
-    cout << ans << endl;
+    vector<int> blocks(2 * N);
+    rep (i, N) {
+        int height = 0;
+        for (int s = L[i]; s <= R[i]; s++) {
+            height = max(height, blocks[s]);
+        }
+        for (int s = L[i]; s <= R[i]; s++) {
+            blocks[s] = height + 1;
+        }
+        cout << height + 1 << endl;
+    }
+
     return 0;
 }

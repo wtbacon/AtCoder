@@ -76,18 +76,29 @@ void readGraph() {
 }
 
 
-vector<bool> seen; // 全要素 false で初期化されるので探索のみなら使える
 // vector<int> degrees(N, 0); // ❶各ノードの次数のカウント
-void dfsGraphWithRecursion(const Graph &G, int v) {
+void dfsGraphWithRecursion(const Graph &G, vector<bool> &seen, int v) {
     seen[v] = true;
     // int numDegree = 0; // ❶ノードの次数のカウント
 
     for (auto next_v : G[v]) {
         // numDegree++; // ❶辿ってきたノードもカウントする
         if (seen[next_v]) continue;
-        dfsGraphWithRecursion(G, next_v);
+        dfsGraphWithRecursion(G, seen, next_v);
     }
     // degrees[v] = numDegree; // ❶次数の更新
+}
+
+vector<int> order;
+
+void topologicalSort(const Graph &G, vector<bool> &seen, int v) {
+    seen[v] = true;
+
+    for (auto next_v : G[v]) {
+        if (seen[next_v]) continue;
+        topologicalSort(G, seen, next_v);
+    }
+    order.push_back(v); // 帰りがけ順に記録
 }
 
 void dfsGraphWithStack(const Graph &G, int s) { // bfsGraphWithQueue(): Stack => Queue

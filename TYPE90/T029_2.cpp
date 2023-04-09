@@ -211,7 +211,10 @@ int main() {
     vector<int> L(N), R(N);
     vector<int> A;
     rep (i, N) {
-        cin >> L[i] >> R[i];
+        int l, r;
+        cin >> l >> r;
+        l--, r--;
+        L[i] = l, R[i] = r;
         A.push_back(L[i]);
         A.push_back(R[i]);
     }
@@ -228,14 +231,9 @@ int main() {
 
     vector<int> blocks(2 * N);
     rep (i, N) {
-        int height = 0;
-        for (int s = L[i]; s <= R[i]; s++) {
-            height = max(height, blocks[s]);
-        }
-        for (int s = L[i]; s <= R[i]; s++) {
-            blocks[s] = height + 1;
-        }
-        cout << height + 1 << endl;
+        int h = *max_element(blocks.begin() + L[i], blocks.begin() + R[i] + 1);
+        fill(blocks.begin() + L[i], blocks.begin() + R[i] + 1, h + 1);
+        cout << h + 1 << endl;
     }
 
     return 0;

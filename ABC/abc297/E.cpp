@@ -61,6 +61,16 @@ vector<ll> primeFactorization(ll N) {
     return p;
 }
 
+vector<ll> getDivisors(ll N) {
+    vector<ll> d;
+    for (ll i = 1; i * i <= N; i++) {
+        if (N % i != 0) continue;
+        d.push_back(i);
+        if (i != (N / i)) d.push_back(N / i);
+    }
+    return d;
+}
+
 ll octalToDecimal(const string &num) {
     ll decimal = 0;
     rep(i, num.size()) {
@@ -91,6 +101,23 @@ double fastPow(double x, ll n) {
     } else {
         return x * half * half;
     }
+}
+
+ll modPow(ll a, ll b, ll mod) {
+    ll ans = 1;
+    rep(i, 31) {
+        if ((b & (1 << i)) != 0) {
+            ans *= a;
+            ans %= mod;
+        }
+        a *= a;
+        a %= mod;
+    }
+    return ans;
+}
+
+ll inverseElement(ll a, ll b, ll mod) { // using Fermat's little theorem
+    return (a * modPow(b, mod - 2, mod)) % mod;
 }
 
 int binary_search() {
@@ -173,21 +200,41 @@ struct UnionFind {
 
 using Graph = vector<vector<int> >;
 //using Graph = vector<vector<Edge> >;
+using ull = unsigned long long;
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    ll N, M, X, ans = INF;;
-    cin >> N >> M;
+    int N, K;
+    cin >> N >> K;
 
-    for (ll a = 1; a <= N; a++) {
-        X = (M + a - 1) / a;
-        if (X <= N) ans = min(ans, a * X);
-        if (a > X) break;
+    vector<ll> A(N);
+    rep(i, N) cin >> A[i];
+    sort(A.begin(), A.end());
+
+
+    vector<vector<ull> > dp(N, vector<ull>(K + 1, 0));
+    for (int j = 1; j < K; j++) dp[0][j] = dp[0][j - 1] + A[0];
+
+    for (int i = 1; i < N; i++) {
+        int bj = i + 1;
+        int nj = 0;
+        for (int j = 0; j < K + 1; j++) {
+            if (j < i + 1) {
+                dp[i][j] = dp[i - 1][j];
+                continue;
+            }
+            if ((dp[i][nj] + A[i]) < dp[i - 1][bj]) {
+                dp[i][j] = dp[i][nj] + A[i];
+                nj = j;
+            } else {
+                dp[i][j] = dp[i - 1][bj];
+                bj++;
+            }
+        }
     }
-    if (ans == INF) cout << -1 << endl;
-    else cout << ans << endl;
 
+    cout << dp[N - 1][K] << endl;
     return 0;
 }
